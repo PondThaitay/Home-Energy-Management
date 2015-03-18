@@ -15,6 +15,7 @@ public class Control_Process {
 	private Socket socket = null;
 	private final String DEBUG_TAG = "Home Energy Management";
     private String pond;
+
 	private String StatusLamp1;
 	private String StatusLamp2;
 	private String StatusLamp3;
