@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0E0E0">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/roundf"
+            android:layout_margin="10dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_setMax"
+                android:background="@drawable/setting_maximum" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="กำหนดอายุการใช้งานสูงสุดของหลอดไฟ"
+                android:id="@+id/tv1"
+                android:textSize="15dp"
+                android:layout_below="@+id/btn_setMax"
+                android:layout_margin="5dp"
+                android:textColor="#ff9648ff"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_setWatt"
+                android:background="@drawable/watt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="กำหนด watt ของหลอดไฟ"
+                android:id="@+id/textView86"
+                android:textSize="15dp"
+                android:layout_below="@+id/btn_setWatt"
+                android:layout_margin="5dp"
+                android:textColor="#ff9648ff"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_clear"
+                android:background="@drawable/clear_time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="ลบค่าเวลาสูงสุดของหลอดไฟ
+(กรณีเปลี่ยนหลอดไฟ)"
+                android:id="@+id/textView88"
+                android:textSize="15dp"
+                android:layout_below="@+id/btn_clear"
+                android:layout_margin="5dp"
+                android:textColor="#ff9648ff"
+                android:textStyle="bold"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

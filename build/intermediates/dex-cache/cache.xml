@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Software\Android Studio\android-sdk_r24.0.2-windows\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-6be27b9e90c168ae59424717b2fdcc50b78058b2.jar" />
+    </item>
+    <item
+        jar="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\pre-dexed\debug\classes-31a623a2817196ba2ab5f7b576446c6f7d228d43.jar" />
+    </item>
+    <item
+        jar="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\pre-dexed\debug\classes-bbf5d14d8bd055db54cfd308a73967b51a2039be.jar" />
+    </item>
+    <item
+        jar="C:\Users\AdminPond\.gradle\caches\modules-2\files-2.1\org.achartengine\achartengine\1.2.0\ba819d54057c08903445b96c355af7d4a3938ab4\achartengine-1.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ba819d54057c08903445b96c355af7d4a3938ab4">
+        <dex dex="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\pre-dexed\debug\achartengine-1.2.0-9171c470e8d8197a0bf100f00f61e79157b56145.jar" />
+    </item>
+    <item
+        jar="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-785f9d8d9e872bf76d6f6ae5c0e8bd0d4ea68206.jar" />
+    </item>
+    <item
+        jar="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\exploded-aar\com.jjoe64\graphview\4.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ae24ad61a573cd1faf8261f5ec6d8f0cb58ddaad">
+        <dex dex="C:\Users\AdminPond\AndroidStudioProjects\Project\app\build\intermediates\pre-dexed\debug\classes-eeaac1c066ebcf25bbd873f1177c6699b6a15fd0.jar" />
+    </item>
+
+</items>

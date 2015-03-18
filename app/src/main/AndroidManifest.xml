@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="www.cmsmarthome.com" >
+
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="HEMA"
+        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity 
+            android:name=".Tab_Control"
+            android:label="Home Energy Management"
+            android:screenOrientation="portrait">
+		</activity>
+		
+        <activity 
+            android:name=".ControlLamp_page"
+            android:label="Control Lamp" 
+            android:screenOrientation="portrait">
+		</activity>
+		
+        <activity 
+            android:name=".SetTime_page" 
+            android:label="Set Time Control" 
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".UpdateAccount_page"
+            android:label="Account Setting" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity android:name=".Mode_page"
+            android:label="Mode" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".SeeTime_page"
+            android:label="Sum Time" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".DimmerMode_page"
+            android:label="Dimmer Mode" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".FullMode_page"
+            android:label="Full Mode" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 
+            android:name=".Graph_page"
+            android:label="Graph Unit" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity
+            android:name=".Tab_Mode"
+            android:label="Home Energy Management"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".Setting_Lamp"
+            android:label="Home Energy Management"
+            android:screenOrientation="portrait">
+        </activity>
+        
+    </application>
+
+</manifest>
