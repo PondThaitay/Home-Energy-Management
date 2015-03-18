@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.sql.SQLOutput;
 
 import android.util.Log;
 
@@ -14,7 +13,7 @@ public class Control_Process {
 	
 	private Socket socket = null;
 	private final String DEBUG_TAG = "Home Energy Management";
-    private String pond;
+    private String pond55555555;
 	private String StatusLamp1;
 	private String StatusLamp2;
 	private String StatusLamp3;
