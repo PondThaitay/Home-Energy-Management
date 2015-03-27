@@ -1,124 +1,123 @@
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E0E0E0">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E5E4E2" >
-
-    <LinearLayout
-        android:id="@+id/head"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="#E5E4E2">
 
         <LinearLayout
+            android:id="@+id/head"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/rowTitle"
-            android:layout_marginTop="5dp"
-            android:weightSum="1">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.07"></LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="เวลาสะสมการทำงานของหลอดไฟ"
-                android:id="@+id/textView16"
-                android:textSize="20dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:weightSum="1"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/roundf"
-            android:layout_margin="3dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView3"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/before" />
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="10dp"
-                android:layout_height="match_parent"></LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="ปกติ"
-                android:id="@+id/textView87" />
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="10dp"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView4"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/warning" />
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="10dp"
-                android:layout_height="match_parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="ควรเปลี่ยน"
-                android:id="@+id/textView89" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/row1"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/roundf">
-
-            <LinearLayout
+                android:id="@+id/rowTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
                 android:weightSum="1">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.07"
+                    android:orientation="horizontal"></LinearLayout>
+
                 <TextView
+                    android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="ห้องนอน"
-                    android:id="@+id/textView17"
-                    android:layout_weight="0" /><![CDATA[
+                    android:text="เวลาสะสมการทำงานของหลอดไฟ"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="3dp"
+                android:background="@drawable/roundf"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/before" />
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"></LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView87"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ปกติ"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/warning" />
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/textView89"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ควรเปลี่ยน"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row1"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundf"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="ห้องนอน"
+                        android:textAppearance="?android:attr/textAppearanceMedium" /><![CDATA[
 
 
 
@@ -136,803 +135,803 @@
 
 
             ]]>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
+                </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
                     android:weightSum="1">
 
                     <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_width="32dp"
-                        android:layout_height="match_parent"></LinearLayout>
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="32dp"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"></LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/bedroom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="หลอดที่ : 1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"></LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et1Bedroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 1"
-                    android:id="@+id/bedroom" />
-
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"></LinearLayout>
-
-                <EditText
-                    android:layout_width="117dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/et1Bedroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow1" />
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="หลอดที่ : 2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et2Bedroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/row2"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 2"
-                    android:id="@+id/textView30" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et2Bedroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow2" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/row2"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:weightSum="1"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:background="@drawable/roundf"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:weightSum="1" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="ห้องน้ำ"
-                    android:id="@+id/textView31"
-                    android:layout_marginLeft="0dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 1"
-                    android:id="@+id/textView32"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et1Toiletroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow3" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/row3"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:background="@drawable/roundf">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:weightSum="1" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="ห้องรับแขก"
-                    android:id="@+id/textView34"
-                    android:layout_marginLeft="0dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 1"
-                    android:id="@+id/textView35"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et1Saloonroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow4" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 2"
-                    android:id="@+id/textView36"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et2Saloonroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow5" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 3"
-                    android:id="@+id/textView33"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et3Saloonroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow6" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 4"
-                    android:id="@+id/textView49"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et4Saloonroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow7" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 5"
-                    android:id="@+id/textView50"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et5Saloonroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow8" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/row4"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:weightSum="1"
-            android:layout_margin="10dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:background="@drawable/roundf">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:weightSum="1" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="ห้องทำงาน"
-                    android:id="@+id/textView37"
-                    android:layout_marginLeft="0dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 1"
-                    android:id="@+id/textView38"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et1Officeroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow9" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 2"
-                    android:id="@+id/textView39"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et2Officeroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow10" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/row5"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:weightSum="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:background="@drawable/roundf">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="ห้องครัว"
-                    android:id="@+id/textView40"
-                    android:layout_marginLeft="0dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 1"
-                    android:id="@+id/textView41"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et1Cookroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow11" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 2"
-                    android:id="@+id/textView42"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et2Cookroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow12" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/row6"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:background="@drawable/roundf">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="หน้าบ้าน"
-                    android:id="@+id/textView43"
-                    android:layout_marginLeft="0dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 1"
-                    android:id="@+id/textView44"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et1Parkroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow13" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:weightSum="1"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 2"
-                    android:id="@+id/textView45"
-                    android:layout_marginLeft="0dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et2Parkroom"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvShow14" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/row7"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/roundf">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:weightSum="1" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="ที่จอดรถ"
-                    android:id="@+id/textView46"
-                    android:layout_marginLeft="0dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundf"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:weightSum="1">
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="หลอดที่ : 1"
-                    android:id="@+id/textView47"
-                    android:layout_marginLeft="0dp" />
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="ห้องน้ำ"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent" />
-
-                <EditText
-                    android:layout_width="117dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/et1FontDoor"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:layout_weight="0.52" />
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et1Toiletroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row3"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundf"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvShow15" />
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView34"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="ห้องรับแขก"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView35"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et1Saloonroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et2Saloonroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView33"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 3"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et3Saloonroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView49"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 4"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et4Saloonroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 5"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et5Saloonroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row4"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundf"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView37"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="ห้องทำงาน"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView38"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et1Officeroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView39"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et2Officeroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row5"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundf"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView40"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="ห้องครัว"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et1Cookroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView42"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et2Cookroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row6"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundf"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView43"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หน้าบ้าน"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView44"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et1Parkroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et2Parkroom"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row7"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundf"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView46"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="ที่จอดรถ"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/textView47"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="หลอดที่ : 1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                    <EditText
+                        android:id="@+id/et1FontDoor"
+                        android:layout_width="117dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.52"
+                        android:editable="false"
+                        android:enabled="true"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/tvShow15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

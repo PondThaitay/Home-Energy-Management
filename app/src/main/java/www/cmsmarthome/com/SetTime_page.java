@@ -1,5 +1,21 @@
 package www.cmsmarthome.com;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -8,25 +24,8 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Calendar;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
-import android.os.Handler;
 
-public class SetTime_page extends Activity{
+public class SetTime_page extends Activity {
 
     User u1 = new User();
     private String IP_Address;
@@ -36,7 +35,7 @@ public class SetTime_page extends Activity{
     protected static final String DEBUG_TAG = null;
 
     private String message = "$XPORTSETSW";
-    private String AllOff= "$XPORTOFFALL************************************************************************************************************";
+    private String AllOff = "$XPORTOFFALL************************************************************************************************************";
 
     private Socket socket = null;
 
@@ -83,7 +82,7 @@ public class SetTime_page extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settime_lamp);
 
-        Intent intent= getIntent();
+        Intent intent = getIntent();
         UserDetailsID = intent.getStringExtra("UserDetailsID");
 
         //get IP and Port
@@ -92,22 +91,22 @@ public class SetTime_page extends Activity{
         Port = u1.strPort;
         //
 
-        mPickTimeSWON = (TimePicker)findViewById(R.id.TimePickerON);
-        mPickTimeSWOFF = (TimePicker)findViewById(R.id.TimePickerOFF);
+        mPickTimeSWON = (TimePicker) findViewById(R.id.TimePickerON);
+        mPickTimeSWOFF = (TimePicker) findViewById(R.id.TimePickerOFF);
 
-        Bedroom = (CheckBox)findViewById(R.id.chBedroom);
-        Toiletroom = (CheckBox)findViewById(R.id.chToilet);
-        Saloonroom = (CheckBox)findViewById(R.id.chSaloon);
-        Cookroom = (CheckBox)findViewById(R.id.chCook);
-        Officeroom = (CheckBox)findViewById(R.id.chOffice);
-        Parkroom = (CheckBox)findViewById(R.id.chPark);
-        FrontDoorroom = (CheckBox)findViewById(R.id.chFrontDoor);
+        Bedroom = (CheckBox) findViewById(R.id.chBedroom);
+        Toiletroom = (CheckBox) findViewById(R.id.chToilet);
+        Saloonroom = (CheckBox) findViewById(R.id.chSaloon);
+        Cookroom = (CheckBox) findViewById(R.id.chCook);
+        Officeroom = (CheckBox) findViewById(R.id.chOffice);
+        Parkroom = (CheckBox) findViewById(R.id.chPark);
+        FrontDoorroom = (CheckBox) findViewById(R.id.chFrontDoor);
 
-        LoopCheck =( CheckBox ) findViewById( R.id.checkBox1);
+        LoopCheck = (CheckBox) findViewById(R.id.checkBox1);
 
         RTCview = (TextView) findViewById(R.id.textViewRTC);
 
-        btnSetTime = (Button)findViewById(R.id.btnSetTimes);
+        btnSetTime = (Button) findViewById(R.id.btnSetTimes);
 
         mPickTimeSWON.setIs24HourView(true);
         mPickTimeSWOFF.setIs24HourView(true);
@@ -126,7 +125,7 @@ public class SetTime_page extends Activity{
         mPickTimeSWON.setCurrentHour(mHour);
         mPickTimeSWOFF.setCurrentHour(mHour);
 
-        final AlertDialog.Builder da = new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_DARK);
+        final AlertDialog.Builder da = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
         checkBox = new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,8 +153,7 @@ public class SetTime_page extends Activity{
                     counter++;
                 }
 
-                if (counter >= 3)
-                {
+                if (counter >= 3) {
                     da.setTitle("เกิดข้อผิดผลาด");
                     da.setIcon(R.drawable.ic_launcher);
                     da.setMessage("เลือกห้องเพื่อตั้งเวลาได้สูงสุด 2 ห้อง");
@@ -181,8 +179,7 @@ public class SetTime_page extends Activity{
         Parkroom.setOnClickListener(checkBox);
         FrontDoorroom.setOnClickListener(checkBox);
 
-        btnSetTime.setOnClickListener(new OnClickListener()
-        {
+        btnSetTime.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -210,17 +207,13 @@ public class SetTime_page extends Activity{
                     counter++;
                 }
                 //Check Minimum
-                if (counter == 0)
-                {
+                if (counter == 0) {
                     da.setTitle("เกิดข้อผิดผลาด");
                     da.setIcon(R.drawable.ic_launcher);
                     da.setMessage("กรุณาเลือกห้องเพื่อตั้งเวลาควบคุม");
                     da.setPositiveButton("ตั้งเวลาใหม่", null);
                     da.show();
-                }
-
-                else
-                {
+                } else {
                     SyncRTC();
 
                     try {
@@ -263,147 +256,116 @@ public class SetTime_page extends Activity{
 
     }//End onCreate
 
-    private String CheckLoopSW()
-    {
+    private String CheckLoopSW() {
 
         String StCheckSW = null;
 
-        if(LoopCheck.isChecked()){
+        if (LoopCheck.isChecked()) {
             StCheckSW = "1";
-        }
-        else{
+        } else {
             StCheckSW = "0";
         }
         return StCheckSW;
 
     }
 
-    private String CheckSW()
-    {
+    private String CheckSW() {
         String SWnumber = null;
 
-        if(Bedroom.isChecked()==true)
-        {
+        if (Bedroom.isChecked() == true) {
             SWnumber = "1";
         }
-        if(Toiletroom.isChecked()==true)
-        {
+        if (Toiletroom.isChecked() == true) {
             SWnumber = "2";
         }
-        if(Saloonroom.isChecked()==true)
-        {
+        if (Saloonroom.isChecked() == true) {
             SWnumber = "3";
         }
-        if(Cookroom.isChecked()==true)
-        {
+        if (Cookroom.isChecked() == true) {
             SWnumber = "4";
         }
-        if(Officeroom.isChecked()==true)
-        {
+        if (Officeroom.isChecked() == true) {
             SWnumber = "5";
         }
-        if(Parkroom.isChecked()==true)
-        {
+        if (Parkroom.isChecked() == true) {
             SWnumber = "6";
         }
-        if(FrontDoorroom.isChecked()==true)
-        {
+        if (FrontDoorroom.isChecked() == true) {
             SWnumber = "7";
         }
         //2 room
         //Multi ขึ้น ด้วย Bedroom 2 ห้อง
-        if((Bedroom.isChecked()==true) && (Toiletroom.isChecked()==true))
-        {
+        if ((Bedroom.isChecked() == true) && (Toiletroom.isChecked() == true)) {
             SWnumber = "B0";
         }
-        if((Bedroom.isChecked()==true) && (Saloonroom.isChecked()==true))
-        {
+        if ((Bedroom.isChecked() == true) && (Saloonroom.isChecked() == true)) {
             SWnumber = "B1";
         }
-        if((Bedroom.isChecked()==true) && (Cookroom.isChecked()==true))
-        {
+        if ((Bedroom.isChecked() == true) && (Cookroom.isChecked() == true)) {
             SWnumber = "B2";
         }
-        if((Bedroom.isChecked()==true) && (Officeroom.isChecked()==true))
-        {
+        if ((Bedroom.isChecked() == true) && (Officeroom.isChecked() == true)) {
             SWnumber = "B3";
         }
-        if((Bedroom.isChecked()==true) && (Parkroom.isChecked()==true))
-        {
+        if ((Bedroom.isChecked() == true) && (Parkroom.isChecked() == true)) {
             SWnumber = "B4";
         }
-        if((Bedroom.isChecked()==true) && (FrontDoorroom.isChecked()==true))
-        {
+        if ((Bedroom.isChecked() == true) && (FrontDoorroom.isChecked() == true)) {
             SWnumber = "B5";
         }
         //
         //Multi ขึ้น ด้วย Toilet 2 ห้อง
-        if((Toiletroom.isChecked()==true) && (Saloonroom.isChecked()==true))
-        {
+        if ((Toiletroom.isChecked() == true) && (Saloonroom.isChecked() == true)) {
             SWnumber = "T0";
         }
-        if((Toiletroom.isChecked()==true) && (Cookroom.isChecked()==true))
-        {
+        if ((Toiletroom.isChecked() == true) && (Cookroom.isChecked() == true)) {
             SWnumber = "T1";
         }
-        if((Toiletroom.isChecked()==true) && (Officeroom.isChecked()==true))
-        {
+        if ((Toiletroom.isChecked() == true) && (Officeroom.isChecked() == true)) {
             SWnumber = "T2";
         }
-        if((Toiletroom.isChecked()==true) && (Parkroom.isChecked()==true))
-        {
+        if ((Toiletroom.isChecked() == true) && (Parkroom.isChecked() == true)) {
             SWnumber = "T3";
         }
-        if((Toiletroom.isChecked()==true) && (FrontDoorroom.isChecked()==true))
-        {
+        if ((Toiletroom.isChecked() == true) && (FrontDoorroom.isChecked() == true)) {
             SWnumber = "T4";
         }
         //
         //Multi ขึ้น ด้วย Saloon 2 ห้อง
-        if((Saloonroom.isChecked()==true) && (Cookroom.isChecked()==true))
-        {
+        if ((Saloonroom.isChecked() == true) && (Cookroom.isChecked() == true)) {
             SWnumber = "S0";
         }
-        if((Saloonroom.isChecked()==true) && (Officeroom.isChecked()==true))
-        {
+        if ((Saloonroom.isChecked() == true) && (Officeroom.isChecked() == true)) {
             SWnumber = "S1";
         }
-        if((Saloonroom.isChecked()==true) && (Parkroom.isChecked()==true))
-        {
+        if ((Saloonroom.isChecked() == true) && (Parkroom.isChecked() == true)) {
             SWnumber = "S2";
         }
-        if((Saloonroom.isChecked()==true) && (FrontDoorroom.isChecked()==true))
-        {
+        if ((Saloonroom.isChecked() == true) && (FrontDoorroom.isChecked() == true)) {
             SWnumber = "S3";
         }
         //
         //Multi ขึ้น ด้วย Cook 2 ห้อง
-        if((Cookroom.isChecked()==true) && (Officeroom.isChecked()==true))
-        {
+        if ((Cookroom.isChecked() == true) && (Officeroom.isChecked() == true)) {
             SWnumber = "C0";
         }
-        if((Cookroom.isChecked()==true) && (Parkroom.isChecked()==true))
-        {
+        if ((Cookroom.isChecked() == true) && (Parkroom.isChecked() == true)) {
             SWnumber = "C1";
         }
-        if((Cookroom.isChecked()==true) && (FrontDoorroom.isChecked()==true))
-        {
+        if ((Cookroom.isChecked() == true) && (FrontDoorroom.isChecked() == true)) {
             SWnumber = "C2";
         }
         //
         //Multi ขึ้น ด้วย Office 2 ห้อง
-        if((Officeroom.isChecked()==true) && (Parkroom.isChecked()==true))
-        {
+        if ((Officeroom.isChecked() == true) && (Parkroom.isChecked() == true)) {
             SWnumber = "O0";
         }
-        if((Officeroom.isChecked()==true) && (FrontDoorroom.isChecked()==true))
-        {
+        if ((Officeroom.isChecked() == true) && (FrontDoorroom.isChecked() == true)) {
             SWnumber = "O1";
         }
         //
         //Multi ขึ้น ด้วย Park 2 ห้อง
-        if((Parkroom.isChecked()==true) && (FrontDoorroom.isChecked()==true))
-        {
+        if ((Parkroom.isChecked() == true) && (FrontDoorroom.isChecked() == true)) {
             SWnumber = "P0";
         }
         //
@@ -412,8 +374,7 @@ public class SetTime_page extends Activity{
         return SWnumber;
     }
 
-    private void SyncRTC()
-    {
+    private void SyncRTC() {
         final Calendar c = Calendar.getInstance();
 
         mDate = c.get(Calendar.DATE);
@@ -432,18 +393,16 @@ public class SetTime_page extends Activity{
                 .append(":*"));
     }
 
-    private static String pad(int c)
-    {
+    private static String pad(int c) {
         if (c >= 10)
             return String.valueOf(c);
         else
             return "0" + String.valueOf(c);
     }
 
-    public class TCPrevThread implements Runnable
-    {
+    public class TCPrevThread implements Runnable {
 
-        public void run(){
+        public void run() {
 
             try {
 
@@ -451,15 +410,14 @@ public class SetTime_page extends Activity{
 
                 String msg;
 
-                while((msg = br.readLine()) != null)
-                {
+                while ((msg = br.readLine()) != null) {
                     Log.d("Comming Msg: ", msg);
                     // Do compare If Data coming in is correct data
                 }
 
                 br.close();
 
-                } catch (IOException e) {
+            } catch (IOException e) {
                 // TODO Auto-generated catch block
                 handler.post(new Runnable() {
                     @Override
@@ -475,7 +433,7 @@ public class SetTime_page extends Activity{
 
     //BackPressed
     public void onBackPressed() {
-        final AlertDialog.Builder da1 = new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_DARK);
+        final AlertDialog.Builder da1 = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
         TextView msg = new TextView(this);
         msg.setText("หากต้องการออกจาก App โดยสมบูรณ์กรุณากลับไปหน้าแรกก่อน");
         msg.setGravity(Gravity.CENTER_HORIZONTAL);

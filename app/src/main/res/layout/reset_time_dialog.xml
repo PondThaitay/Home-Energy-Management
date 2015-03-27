@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_resetTime"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
-    android:id="@+id/layout_resetTime"
     android:focusableInTouchMode="false">
 
     <LinearLayout
@@ -16,10 +16,10 @@
             android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:layout_weight="1"
-            android:weightSum="1"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,346 +30,346 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/textView52"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="ห้องนอน (หลอดที่ 1) :"
-                    android:id="@+id/textView52" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/et1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset1"
-                    android:background="@drawable/zero_time" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องนอน (หลอดที่ 2) :"
-                    android:id="@+id/textView53" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et2"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset2"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องน้ำ (หลอดที่ 1) :"
-                    android:id="@+id/textView56" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et3"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset3"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องรับแขก (หลอดที่ 1) :"
-                    android:id="@+id/textView57" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et4"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset4"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องรับแขก (หลอดที่ 2) :"
-                    android:id="@+id/textView58" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et5"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset5"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องรับแขก (หลอดที่ 3) :"
-                    android:id="@+id/textView59" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et6"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset6"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องรับแขก (หลอดที่ 4) :"
-                    android:id="@+id/textView61" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et7"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset7"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องรับแขก (หลอดที่ 5) :"
-                    android:id="@+id/textView62" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et8"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset8"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องทำงาน (หลอดที่ 1) :"
-                    android:id="@+id/textView63" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et9"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset9"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องทำงาน (หลอดที่ 2) :"
-                    android:id="@+id/textView64" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et10"
-                    android:layout_weight="0.87"
-                    android:gravity="center"
-                    android:enabled="true"
-                    android:editable="false" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:id="@+id/btnReset10"
-                    android:background="@drawable/zero_time" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ห้องครัว (หลอดที่ 1) :"
-                    android:id="@+id/textView65" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et11"
-                    android:gravity="center"
-                    android:enabled="true"
                     android:editable="false"
-                    android:layout_weight="0.87" />
+                    android:enabled="true"
+                    android:gravity="center" />
 
                 <Button
+                    android:id="@+id/btnReset1"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView53"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องนอน (หลอดที่ 2) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView56"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องน้ำ (หลอดที่ 1) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset3"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องรับแขก (หลอดที่ 1) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset4"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView58"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องรับแขก (หลอดที่ 2) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset5"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView59"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องรับแขก (หลอดที่ 3) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset6"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องรับแขก (หลอดที่ 4) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset7"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องรับแขก (หลอดที่ 5) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset8"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView63"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องทำงาน (หลอดที่ 1) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset9"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องทำงาน (หลอดที่ 2) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@+id/btnReset10"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/zero_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView65"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ห้องครัว (หลอดที่ 1) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/et11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:gravity="center" />
+
+                <Button
                     android:id="@+id/btnReset11"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:background="@drawable/zero_time" />
 
             </LinearLayout>
@@ -383,25 +383,25 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/textView66"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="ห้องครัว (หลอดที่ 2) :"
-                    android:id="@+id/textView66" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/et12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.87"
-                    android:gravity="center"
+                    android:editable="false"
                     android:enabled="true"
-                    android:editable="false" />
+                    android:gravity="center" />
 
                 <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
                     android:id="@+id/btnReset12"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:background="@drawable/zero_time" />
 
             </LinearLayout>
@@ -415,25 +415,25 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/textView67"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="หน้าบ้าน (หลอดที่ 1) :"
-                    android:id="@+id/textView67" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/et13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.87"
-                    android:gravity="center"
+                    android:editable="false"
                     android:enabled="true"
-                    android:editable="false" />
+                    android:gravity="center" />
 
                 <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
                     android:id="@+id/btnReset13"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:background="@drawable/zero_time" />
 
             </LinearLayout>
@@ -447,25 +447,25 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/textView68"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="หน้าบ้าน (หลอดที่ 2) :"
-                    android:id="@+id/textView68" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <EditText
+                    android:id="@+id/et14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/et14"
                     android:layout_weight="0.87"
-                    android:gravity="center"
+                    android:editable="false"
                     android:enabled="true"
-                    android:editable="false" />
+                    android:gravity="center" />
 
                 <Button
+                    android:id="@+id/btnReset14"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:id="@+id/btnReset14"
                     android:background="@drawable/zero_time" />
 
             </LinearLayout>
@@ -479,25 +479,25 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/textView69"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="ที่จอดรถ (หลอดที่ 1) :"
-                    android:id="@+id/textView69" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <EditText
+                    android:id="@+id/et15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/et15"
                     android:layout_weight="0.87"
-                    android:gravity="center"
+                    android:editable="false"
                     android:enabled="true"
-                    android:editable="false" />
+                    android:gravity="center" />
 
                 <Button
+                    android:id="@+id/btnReset15"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:id="@+id/btnReset15"
                     android:background="@drawable/zero_time" />
 
             </LinearLayout>

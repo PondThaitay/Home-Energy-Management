@@ -1,83 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#E0E0E0">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/head"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:padding="10dp"
-        android:id="@+id/head">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/title"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:id="@+id/title"
-            android:padding="10dp"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
             android:background="@drawable/roundf"
-            android:layout_margin="10dp">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
+                android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="โหมดประหยัดลพลังงาน"
-                android:id="@+id/textView11"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="20dp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="โหมดประหยัดพลังงาน จะมีการทำงาน"
                 android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp" />
+                android:text="โหมดประหยัดพลังงาน จะมีการทำงาน"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
+                android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="คือ จะเปิดการทำงานของหลอดไฟที่เป็น"
-                android:id="@+id/textView28" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
+                android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="หลอดไฟหลัก เท่านั่น เพื่อเป็นการประหยัด"
-                android:id="@+id/textView29" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
+                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="พลังงานภายในบ้าน"
-                android:id="@+id/textView14" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
-                android:id="@+id/imageView"
-                android:src="@drawable/mode_saving"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:src="@drawable/mode_saving" />
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/rowBtn"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:id="@+id/rowBtn">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <Button
+                    android:id="@+id/btnSaveEN"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ทำงาน"
-                    android:id="@+id/btnSaveEN"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="ทำงาน" />
             </LinearLayout>
 
         </LinearLayout>

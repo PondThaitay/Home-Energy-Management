@@ -97,36 +97,36 @@ public class SeeTime_page extends Activity {
         etParkroom2 = (EditText) findViewById(R.id.et2Parkroom);
         etFontDoor1 = (EditText) findViewById(R.id.et1FontDoor);
 
-        tvShow1 = (ImageView)findViewById(R.id.tvShow1);
-        tvShow2 = (ImageView)findViewById(R.id.tvShow2);
-        tvShow3 = (ImageView)findViewById(R.id.tvShow3);
-        tvShow4 = (ImageView)findViewById(R.id.tvShow4);
-        tvShow5 = (ImageView)findViewById(R.id.tvShow5);
-        tvShow6 = (ImageView)findViewById(R.id.tvShow6);
-        tvShow7 = (ImageView)findViewById(R.id.tvShow7);
-        tvShow8 = (ImageView)findViewById(R.id.tvShow8);
-        tvShow9 = (ImageView)findViewById(R.id.tvShow9);
-        tvShow10 = (ImageView)findViewById(R.id.tvShow10);
-        tvShow11 = (ImageView)findViewById(R.id.tvShow11);
-        tvShow12 = (ImageView)findViewById(R.id.tvShow12);
-        tvShow13 = (ImageView)findViewById(R.id.tvShow13);
-        tvShow14 = (ImageView)findViewById(R.id.tvShow14);
-        tvShow15 = (ImageView)findViewById(R.id.tvShow15);
+        tvShow1 = (ImageView) findViewById(R.id.tvShow1);
+        tvShow2 = (ImageView) findViewById(R.id.tvShow2);
+        tvShow3 = (ImageView) findViewById(R.id.tvShow3);
+        tvShow4 = (ImageView) findViewById(R.id.tvShow4);
+        tvShow5 = (ImageView) findViewById(R.id.tvShow5);
+        tvShow6 = (ImageView) findViewById(R.id.tvShow6);
+        tvShow7 = (ImageView) findViewById(R.id.tvShow7);
+        tvShow8 = (ImageView) findViewById(R.id.tvShow8);
+        tvShow9 = (ImageView) findViewById(R.id.tvShow9);
+        tvShow10 = (ImageView) findViewById(R.id.tvShow10);
+        tvShow11 = (ImageView) findViewById(R.id.tvShow11);
+        tvShow12 = (ImageView) findViewById(R.id.tvShow12);
+        tvShow13 = (ImageView) findViewById(R.id.tvShow13);
+        tvShow14 = (ImageView) findViewById(R.id.tvShow14);
+        tvShow15 = (ImageView) findViewById(R.id.tvShow15);
 
         Refresh();
 
         cTime = new Timer();
-            cTime.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Refresh();
-                        }
-                    });
-                }
-            },0,600000);
+        cTime.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Refresh();
+                    }
+                });
+            }
+        }, 0, 600000);
 
         /*btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +155,8 @@ public class SeeTime_page extends Activity {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
-                    @Override public void run() {
+                    @Override
+                    public void run() {
                         swipeLayout.setRefreshing(false);
                         Refresh();
                         Toast.makeText(getBaseContext(), "อัพเดทข้อมูลเวลาสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
@@ -163,7 +164,7 @@ public class SeeTime_page extends Activity {
                 }, 3000);
             }
         });
-}//End onCreate
+    }//End onCreate
 
     /*private Handler messageHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -174,9 +175,8 @@ public class SeeTime_page extends Activity {
         }
     };*/
 
-    public void Refresh()
-    {
-        s1.getDataTimer(TimerID , IP_Address);
+    public void Refresh() {
+        s1.getDataTimer(TimerID, IP_Address);
         s1.getMaxTime(IP_Address);
 
         etBedroom1.setText(s1.strBedroom1);
@@ -201,70 +201,100 @@ public class SeeTime_page extends Activity {
 
         etFontDoor1.setText(s1.strFontDoor1);
 
-        s1.SplitString(s1.strBedroom1,s1.mBedroom1,s1.strBedroom2,s1.mBedroom2,s1.strToiletroom1,s1.mToiletroom1,s1.strSaloonroom1,s1.mSaloonroom1
-                      ,s1.strSaloonroom2,s1.mSaloonroom2,s1.strSaloonroom3,s1.mSaloonroom3,s1.strSaloonroom4,s1.mSaloonroom4,s1.strSaloonroom5,s1.mSaloonroom5
-                      ,s1.strOfficeroom1,s1.mOfficeroom1,s1.strOfficeroom2,s1.mOfficeroom2,s1.strCookroom1,s1.mCookroom1,s1.strCookroom2,s1.mCookroom2
-                      ,s1.strParkroom1,s1.mParkroom1,s1.strParkroom2,s1.mParkroom2,s1.strFontDoor1,s1.mFontDoor1);
+        s1.SplitString(s1.strBedroom1, s1.mBedroom1, s1.strBedroom2, s1.mBedroom2, s1.strToiletroom1, s1.mToiletroom1, s1.strSaloonroom1, s1.mSaloonroom1
+                , s1.strSaloonroom2, s1.mSaloonroom2, s1.strSaloonroom3, s1.mSaloonroom3, s1.strSaloonroom4, s1.mSaloonroom4, s1.strSaloonroom5, s1.mSaloonroom5
+                , s1.strOfficeroom1, s1.mOfficeroom1, s1.strOfficeroom2, s1.mOfficeroom2, s1.strCookroom1, s1.mCookroom1, s1.strCookroom2, s1.mCookroom2
+                , s1.strParkroom1, s1.mParkroom1, s1.strParkroom2, s1.mParkroom2, s1.strFontDoor1, s1.mFontDoor1);
 
-        if(s1.spBedroom1.equals("1"))
-        {tvShow1.setImageResource(R.drawable.warning);}
-        else {tvShow1.setImageResource(R.drawable.before);}
+        if (s1.spBedroom1.equals("1")) {
+            tvShow1.setImageResource(R.drawable.warning);
+        } else {
+            tvShow1.setImageResource(R.drawable.before);
+        }
 
-        if(s1.spBedroom2.equals("1"))
-        {tvShow2.setImageResource(R.drawable.warning);}
-        else {tvShow2.setImageResource(R.drawable.before);}
+        if (s1.spBedroom2.equals("1")) {
+            tvShow2.setImageResource(R.drawable.warning);
+        } else {
+            tvShow2.setImageResource(R.drawable.before);
+        }
 
-        if(s1.spToiletroom1.equals("1"))
-        {tvShow3.setImageResource(R.drawable.warning);}
-        else {tvShow3.setImageResource(R.drawable.before);}
+        if (s1.spToiletroom1.equals("1")) {
+            tvShow3.setImageResource(R.drawable.warning);
+        } else {
+            tvShow3.setImageResource(R.drawable.before);
+        }
 
-        if(s1.spSaloonroom1.equals("1"))
-        {tvShow4.setImageResource(R.drawable.warning);}
-        else {tvShow4.setImageResource(R.drawable.before);}
-        if(s1.spSaloonroom2.equals("1"))
-        {tvShow5.setImageResource(R.drawable.warning);}
-        else {tvShow5.setImageResource(R.drawable.before);}
-        if(s1.spSaloonroom3.equals("1"))
-        {tvShow6.setImageResource(R.drawable.warning);}
-        else {tvShow6.setImageResource(R.drawable.before);}
-        if(s1.spSaloonroom4.equals("1"))
-        {tvShow7.setImageResource(R.drawable.warning);}
-        else {tvShow7.setImageResource(R.drawable.before);}
-        if(s1.spSaloonroom5.equals("1"))
-        {tvShow8.setImageResource(R.drawable.warning);}
-        else {tvShow8.setImageResource(R.drawable.before);}
+        if (s1.spSaloonroom1.equals("1")) {
+            tvShow4.setImageResource(R.drawable.warning);
+        } else {
+            tvShow4.setImageResource(R.drawable.before);
+        }
+        if (s1.spSaloonroom2.equals("1")) {
+            tvShow5.setImageResource(R.drawable.warning);
+        } else {
+            tvShow5.setImageResource(R.drawable.before);
+        }
+        if (s1.spSaloonroom3.equals("1")) {
+            tvShow6.setImageResource(R.drawable.warning);
+        } else {
+            tvShow6.setImageResource(R.drawable.before);
+        }
+        if (s1.spSaloonroom4.equals("1")) {
+            tvShow7.setImageResource(R.drawable.warning);
+        } else {
+            tvShow7.setImageResource(R.drawable.before);
+        }
+        if (s1.spSaloonroom5.equals("1")) {
+            tvShow8.setImageResource(R.drawable.warning);
+        } else {
+            tvShow8.setImageResource(R.drawable.before);
+        }
 
 
-        if(s1.spOfficeroom1.equals("1"))
-        {tvShow9.setImageResource(R.drawable.warning);}
-        else {tvShow9.setImageResource(R.drawable.before);}
-        if(s1.spOfficeroom2.equals("1"))
-        {tvShow10.setImageResource(R.drawable.warning);}
-        else {tvShow10.setImageResource(R.drawable.before);}
+        if (s1.spOfficeroom1.equals("1")) {
+            tvShow9.setImageResource(R.drawable.warning);
+        } else {
+            tvShow9.setImageResource(R.drawable.before);
+        }
+        if (s1.spOfficeroom2.equals("1")) {
+            tvShow10.setImageResource(R.drawable.warning);
+        } else {
+            tvShow10.setImageResource(R.drawable.before);
+        }
 
-        if(s1.spCookroom1.equals("1"))
-        {tvShow11.setImageResource(R.drawable.warning);}
-        else {tvShow11.setImageResource(R.drawable.before);}
-        if(s1.spCookroom2.equals("1"))
-        {tvShow12.setImageResource(R.drawable.warning);}
-        else {tvShow12.setImageResource(R.drawable.before);}
+        if (s1.spCookroom1.equals("1")) {
+            tvShow11.setImageResource(R.drawable.warning);
+        } else {
+            tvShow11.setImageResource(R.drawable.before);
+        }
+        if (s1.spCookroom2.equals("1")) {
+            tvShow12.setImageResource(R.drawable.warning);
+        } else {
+            tvShow12.setImageResource(R.drawable.before);
+        }
 
-        if(s1.spParkroom1.equals("1"))
-        {tvShow13.setImageResource(R.drawable.warning);}
-        else {tvShow13.setImageResource(R.drawable.before);}
-        if(s1.spParkroom2.equals("1"))
-        {tvShow14.setImageResource(R.drawable.warning);}
-        else {tvShow14.setImageResource(R.drawable.before);}
+        if (s1.spParkroom1.equals("1")) {
+            tvShow13.setImageResource(R.drawable.warning);
+        } else {
+            tvShow13.setImageResource(R.drawable.before);
+        }
+        if (s1.spParkroom2.equals("1")) {
+            tvShow14.setImageResource(R.drawable.warning);
+        } else {
+            tvShow14.setImageResource(R.drawable.before);
+        }
 
-        if(s1.spFontDoor1.equals("1"))
-        {tvShow15.setImageResource(R.drawable.warning);}
-        else {tvShow15.setImageResource(R.drawable.before);}
+        if (s1.spFontDoor1.equals("1")) {
+            tvShow15.setImageResource(R.drawable.warning);
+        } else {
+            tvShow15.setImageResource(R.drawable.before);
+        }
 
     }
 
     //BackPressed
     public void onBackPressed() {
-        final AlertDialog.Builder da1 = new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_DARK);
+        final AlertDialog.Builder da1 = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
         TextView msg = new TextView(this);
         msg.setText("หากต้องการออกจาก App โดยสมบูรณ์กรุณากลับไปหน้าแรกก่อน");
         msg.setGravity(Gravity.CENTER_HORIZONTAL);

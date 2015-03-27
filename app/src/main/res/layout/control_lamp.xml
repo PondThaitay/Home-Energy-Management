@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0E0E0" >
+    android:background="#E0E0E0">
 
     <LinearLayout
         android:id="@+id/head"
@@ -11,29 +11,29 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="340dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:gravity="center"
+            android:layout_margin="10dp"
             android:background="@drawable/roundf"
-            android:layout_margin="10dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/row1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:weightSum="1"
-                android:gravity="center">
+                android:weightSum="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp">
+                    android:layout_margin="3dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
                         android:id="@+id/TextView01"
@@ -45,7 +45,7 @@
                     <LinearLayout
                         android:layout_width="141dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                     </LinearLayout>
 
@@ -57,28 +57,28 @@
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.91"></LinearLayout>
+                        android:layout_weight="0.91"
+                        android:orientation="horizontal"></LinearLayout>
 
                     <Button
+                        android:id="@+id/btnCloseAll"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:id="@+id/btnCloseAll"
                         android:background="@drawable/closeall" />
 
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvCA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="ปิดทั้งหมด"
-                    android:id="@+id/tvCA"
                     android:layout_gravity="right"
-                    android:textSize="9dp"
-                    android:textColor="#ffff2b08" />
+                    android:text="ปิดทั้งหมด"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffff2b08"
+                    android:textSize="9dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                     <LinearLayout
                         android:layout_width="57dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                     </LinearLayout>
 
@@ -106,7 +106,7 @@
                     <LinearLayout
                         android:layout_width="68dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                     </LinearLayout>
 
@@ -132,9 +132,8 @@
                     <LinearLayout
                         android:layout_width="18dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="0.54">
-                    </LinearLayout>
+                        android:layout_weight="0.54"
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/textView3"
@@ -145,8 +144,7 @@
                     <LinearLayout
                         android:layout_width="61dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/textView4"
@@ -157,51 +155,51 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="1"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
+                        android:id="@+id/countTime1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime1" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="25dp"
                         android:layout_height="18dp"
-                        android:layout_weight="0.38"></LinearLayout>
+                        android:layout_weight="0.38"
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
+                        android:id="@+id/countTime2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime2" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="36dp"
                         android:layout_height="15dp"
-                        android:layout_weight="0.38" />
+                        android:layout_weight="0.38"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime3" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
 
                     <Switch
                         android:id="@+id/switchLamp1"
@@ -216,8 +214,7 @@
                     <LinearLayout
                         android:layout_width="22dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <Switch
                         android:id="@+id/switchLamp3"
@@ -231,14 +228,14 @@
                 android:id="@+id/row2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="3dp">
+                    android:layout_margin="3dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/TextView07"
@@ -250,7 +247,7 @@
                     <LinearLayout
                         android:layout_width="213dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                     </LinearLayout>
                 </LinearLayout>
@@ -269,8 +266,7 @@
                     <LinearLayout
                         android:layout_width="57dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp5"
@@ -281,9 +277,8 @@
                     <LinearLayout
                         android:layout_width="17dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="0.31">
-                    </LinearLayout>
+                        android:layout_weight="0.31"
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp6"
@@ -308,8 +303,7 @@
                     <LinearLayout
                         android:layout_width="18dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView05"
@@ -320,9 +314,8 @@
                     <LinearLayout
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="0.18">
-                    </LinearLayout>
+                        android:layout_weight="0.18"
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView04"
@@ -333,44 +326,44 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="1"
-                    android:layout_weight="0.12" >
+                    android:layout_weight="0.12"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
+                        android:id="@+id/countTime4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime4" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="36dp"
                         android:layout_height="15dp"
-                        android:layout_weight="0.15" />
+                        android:layout_weight="0.15"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime5" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="30dp"
                         android:layout_height="18dp"
-                        android:layout_weight="0.22" />
+                        android:layout_weight="0.22"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime6" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -400,8 +393,8 @@
                 android:id="@+id/row3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -417,8 +410,7 @@
                     <LinearLayout
                         android:layout_width="57dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp8"
@@ -441,9 +433,8 @@
                     <LinearLayout
                         android:layout_width="12dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="0.19">
-                    </LinearLayout>
+                        android:layout_weight="0.19"
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView10"
@@ -454,36 +445,35 @@
                     <LinearLayout
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:weightSum="1"
-                    android:layout_weight="0.12">
+                    android:layout_weight="0.12"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
+                        android:id="@+id/countTime7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime7" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="36dp"
                         android:layout_height="15dp"
-                        android:layout_weight="0.06" />
+                        android:layout_weight="0.06"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime8" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </LinearLayout>
 
@@ -508,15 +498,15 @@
                 android:id="@+id/row4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp">
+                    android:layout_margin="3dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/TextView13"
@@ -528,8 +518,7 @@
                     <LinearLayout
                         android:layout_width="83dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView03"
@@ -542,7 +531,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="10dp" >
+                    android:paddingLeft="10dp">
 
                     <ImageView
                         android:id="@+id/imageViewLamp9"
@@ -553,8 +542,7 @@
                     <LinearLayout
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp10"
@@ -565,8 +553,7 @@
                     <LinearLayout
                         android:layout_width="16dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp11"
@@ -577,8 +564,7 @@
                     <LinearLayout
                         android:layout_width="22dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp12"
@@ -591,8 +577,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
                     android:layout_gravity="center_horizontal"
+                    android:paddingLeft="5dp"
                     android:weightSum="1">
 
                     <TextView
@@ -602,10 +588,10 @@
                         android:text="หลอดที่ : 1" />
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.48"></LinearLayout>
+                        android:layout_weight="0.48"
+                        android:orientation="horizontal"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView11"
@@ -616,9 +602,8 @@
                     <LinearLayout
                         android:layout_width="11dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="0.22">
-                    </LinearLayout>
+                        android:layout_weight="0.22"
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView12"
@@ -629,8 +614,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="0.25" />
+                        android:layout_weight="0.25"
+                        android:orientation="vertical" />
 
                     <TextView
                         android:id="@+id/TextView08"
@@ -640,58 +625,58 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="1"
-                    android:layout_weight="0.12">
+                    android:layout_weight="0.12"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="00:00:00"
                         android:id="@+id/countTime9"
-                        android:layout_marginLeft="5dp" />
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="11dp"
-                        android:layout_height="15dp"
-                        android:layout_weight="0.34" />
-
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_marginLeft="5dp"
                         android:text="00:00:00"
-                        android:id="@+id/countTime10" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="11dp"
                         android:layout_height="15dp"
-                        android:layout_weight="0.42" />
+                        android:layout_weight="0.34"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime11" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
+                        android:layout_width="11dp"
+                        android:layout_height="15dp"
+                        android:layout_weight="0.42"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/countTime11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00:00"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
                         android:layout_width="17dp"
                         android:layout_height="18dp"
-                        android:layout_weight="0.01" />
+                        android:layout_weight="0.01"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime12" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -730,14 +715,14 @@
                 android:id="@+id/row5"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="3dp">
+                    android:layout_margin="3dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/TextView17"
@@ -749,8 +734,7 @@
                     <LinearLayout
                         android:layout_width="139dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView20"
@@ -773,8 +757,7 @@
                     <LinearLayout
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp14"
@@ -785,8 +768,7 @@
                     <LinearLayout
                         android:layout_width="63dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageViewLamp15"
@@ -797,8 +779,7 @@
                     <LinearLayout
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -821,8 +802,7 @@
                     <LinearLayout
                         android:layout_width="49dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/TextView16"
@@ -833,51 +813,51 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="1"
-                    android:layout_weight="0.12" >
+                    android:layout_weight="0.12"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
+                        android:id="@+id/countTime13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime13" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="19dp"
                         android:layout_height="18dp"
-                        android:layout_weight="0.12" />
+                        android:layout_weight="0.12"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime14" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="36dp"
                         android:layout_height="15dp"
-                        android:layout_weight="0.22" />
+                        android:layout_weight="0.22"
+                        android:orientation="vertical" />
 
                     <TextView
+                        android:id="@+id/countTime15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="00:00:00"
-                        android:id="@+id/countTime15" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingLeft="2dp" >
+                    android:paddingLeft="2dp">
 
                     <Switch
                         android:id="@+id/switchLamp13"
@@ -892,8 +872,7 @@
                     <LinearLayout
                         android:layout_width="25dp"
                         android:layout_height="13dp"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <Switch
                         android:id="@+id/switchLamp15"
@@ -903,12 +882,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/row_voice"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:id="@+id/row_voice"
-                android:weightSum="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="1">
 
                 <Button
                     android:id="@+id/btnVoice"
@@ -918,11 +897,11 @@
                     android:background="@drawable/mic" />
 
                 <TextView
+                    android:id="@+id/textView85"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="แตะเพื่อใช้คำสั่งเสียง!"
-                    android:id="@+id/textView85"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textSize="15dp" />
 
             </LinearLayout>

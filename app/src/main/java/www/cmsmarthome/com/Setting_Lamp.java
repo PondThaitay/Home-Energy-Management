@@ -15,8 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Timer;
-
 public class Setting_Lamp extends Activity {
 
     User u1 = new User();
@@ -45,19 +43,19 @@ public class Setting_Lamp extends Activity {
         IP_Address = u1.strIP;
         //
 
-        btnSetMax = (Button)findViewById(R.id.btn_setMax);
-        btnSetWatt = (Button)findViewById(R.id.btn_setWatt);
-        btnClearTime = (Button)findViewById(R.id.btn_clear);
+        btnSetMax = (Button) findViewById(R.id.btn_setMax);
+        btnSetWatt = (Button) findViewById(R.id.btn_setWatt);
+        btnClearTime = (Button) findViewById(R.id.btn_clear);
 
-        final AlertDialog.Builder Dialog = new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_LIGHT);
-        final AlertDialog.Builder DialogResetTime = new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_LIGHT);
+        final AlertDialog.Builder Dialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
+        final AlertDialog.Builder DialogResetTime = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
         final LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
 
         btnSetMax.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                final View Viewlayout = inflater.inflate(R.layout.setmaximum_dialog,(ViewGroup)findViewById(R.id.layout_setmaximum));
+                final View Viewlayout = inflater.inflate(R.layout.setmaximum_dialog, (ViewGroup) findViewById(R.id.layout_setmaximum));
                 Dialog.setIcon(R.drawable.ic_launcher);
                 Dialog.setTitle("อายุการใช้งานสูงสุดของหลอดไฟ");
                 Dialog.setView(Viewlayout);
@@ -99,13 +97,13 @@ public class Setting_Lamp extends Activity {
                 //End get MaxTime
 
                 // Button OK
-                Dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener(){
+                Dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         //close Dialog
                         dialog.dismiss();
 
-                        String BedR1,BedR2,ToiR,Sal1,Sal2,Sal3,Sal4,Sal5,Or1,Or2,Co1,Co2,Pr1,Pr2,Fd;
+                        String BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd;
 
                         BedR1 = mBedRoom1.getText().toString();
                         BedR2 = mBedRoom2.getText().toString();
@@ -143,7 +141,7 @@ public class Setting_Lamp extends Activity {
         btnSetWatt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final View Viewlayout = inflater.inflate(R.layout.setwatt_dialog,(ViewGroup)findViewById(R.id.layout_setwatt));
+                final View Viewlayout = inflater.inflate(R.layout.setwatt_dialog, (ViewGroup) findViewById(R.id.layout_setwatt));
                 Dialog.setIcon(R.drawable.ic_launcher);
                 Dialog.setTitle("ระบุค่า watt ของหลอดไฟ");
                 Dialog.setView(Viewlayout);
@@ -185,13 +183,13 @@ public class Setting_Lamp extends Activity {
                 //End get MaxTime
 
                 // Button OK
-                Dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener(){
+                Dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         //close Dialog
                         dialog.dismiss();
 
-                        String BedR1,BedR2,ToiR,Sal1,Sal2,Sal3,Sal4,Sal5,Or1,Or2,Co1,Co2,Pr1,Pr2,Fd;
+                        String BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd;
 
                         BedR1 = wBedRoom1.getText().toString();
                         BedR2 = wBedRoom2.getText().toString();
@@ -230,7 +228,7 @@ public class Setting_Lamp extends Activity {
             @Override
             public void onClick(View v) {
 
-                final View ViewlayoutReset = inflater.inflate(R.layout.reset_time_dialog,(ViewGroup)findViewById(R.id.layout_resetTime));
+                final View ViewlayoutReset = inflater.inflate(R.layout.reset_time_dialog, (ViewGroup) findViewById(R.id.layout_resetTime));
                 DialogResetTime.setIcon(R.drawable.ic_launcher);
                 DialogResetTime.setTitle("ล้างเวลาของหลอดไฟ");
                 DialogResetTime.setView(ViewlayoutReset);
@@ -251,23 +249,23 @@ public class Setting_Lamp extends Activity {
                 final EditText rePr2 = (EditText) ViewlayoutReset.findViewById(R.id.et14);
                 final EditText reFd1 = (EditText) ViewlayoutReset.findViewById(R.id.et15);
 
-                final Button btnBr1 = (Button)ViewlayoutReset.findViewById(R.id.btnReset1);
-                final Button btnBr2 = (Button)ViewlayoutReset.findViewById(R.id.btnReset2);
-                final Button btnTr1 = (Button)ViewlayoutReset.findViewById(R.id.btnReset3);
-                final Button btnSr1 = (Button)ViewlayoutReset.findViewById(R.id.btnReset4);
-                final Button btnSr2 = (Button)ViewlayoutReset.findViewById(R.id.btnReset5);
-                final Button btnSr3 = (Button)ViewlayoutReset.findViewById(R.id.btnReset6);
-                final Button btnSr4 = (Button)ViewlayoutReset.findViewById(R.id.btnReset7);
-                final Button btnSr5 = (Button)ViewlayoutReset.findViewById(R.id.btnReset8);
-                final Button btnOr1 = (Button)ViewlayoutReset.findViewById(R.id.btnReset9);
-                final Button btnOr2 = (Button)ViewlayoutReset.findViewById(R.id.btnReset10);
-                final Button btnCr1 = (Button)ViewlayoutReset.findViewById(R.id.btnReset11);
-                final Button btnCr2 = (Button)ViewlayoutReset.findViewById(R.id.btnReset12);
-                final Button btnPr1 = (Button)ViewlayoutReset.findViewById(R.id.btnReset13);
-                final Button btnPr2 = (Button)ViewlayoutReset.findViewById(R.id.btnReset14);
-                final Button btnFd1 = (Button)ViewlayoutReset.findViewById(R.id.btnReset15);
+                final Button btnBr1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset1);
+                final Button btnBr2 = (Button) ViewlayoutReset.findViewById(R.id.btnReset2);
+                final Button btnTr1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset3);
+                final Button btnSr1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset4);
+                final Button btnSr2 = (Button) ViewlayoutReset.findViewById(R.id.btnReset5);
+                final Button btnSr3 = (Button) ViewlayoutReset.findViewById(R.id.btnReset6);
+                final Button btnSr4 = (Button) ViewlayoutReset.findViewById(R.id.btnReset7);
+                final Button btnSr5 = (Button) ViewlayoutReset.findViewById(R.id.btnReset8);
+                final Button btnOr1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset9);
+                final Button btnOr2 = (Button) ViewlayoutReset.findViewById(R.id.btnReset10);
+                final Button btnCr1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset11);
+                final Button btnCr2 = (Button) ViewlayoutReset.findViewById(R.id.btnReset12);
+                final Button btnPr1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset13);
+                final Button btnPr2 = (Button) ViewlayoutReset.findViewById(R.id.btnReset14);
+                final Button btnFd1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset15);
 
-                s1.getDataTimer(TimerID,IP_Address);
+                s1.getDataTimer(TimerID, IP_Address);
                 reBr1.setText(s1.strBedroom1);
                 reBr2.setText(s1.strBedroom2);
                 reTr1.setText(s1.strToiletroom1);
@@ -287,7 +285,7 @@ public class Setting_Lamp extends Activity {
                 btnBr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"BedRoom1");
+                        s1.ResetData(IP_Address, "BedRoom1");
                         reBr1.setText("00:00:00");
                         Toast.makeText(getBaseContext(), "ล้างเวลา ห้องนอน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
@@ -295,113 +293,113 @@ public class Setting_Lamp extends Activity {
                 btnBr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"BedRoom2");
+                        s1.ResetData(IP_Address, "BedRoom2");
                         reBr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องนอน(หลอดที่ 2) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องนอน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnTr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"ToiletRoom1");
+                        s1.ResetData(IP_Address, "ToiletRoom1");
                         reTr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา หลอดไฟห้องน้ำ สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา หลอดไฟห้องน้ำ สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnSr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"SaloonRoom1");
+                        s1.ResetData(IP_Address, "SaloonRoom1");
                         reSr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องรับแขก(หลอดที่ 1) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnSr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"SaloonRoom2");
+                        s1.ResetData(IP_Address, "SaloonRoom2");
                         reSr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องรับแขก(หลอดที่ 2) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnSr3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"SaloonRoom3");
+                        s1.ResetData(IP_Address, "SaloonRoom3");
                         reSr3.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องรับแขก(หลอดที่ 3) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 3) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnSr4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"SaloonRoom4");
+                        s1.ResetData(IP_Address, "SaloonRoom4");
                         reSr4.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องรับแขก(หลอดที่ 4) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 4) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnSr5.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"SaloonRoom5");
+                        s1.ResetData(IP_Address, "SaloonRoom5");
                         reSr5.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องรับแขก(หลอดที่ 5) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 5) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnOr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"OfficeRoom1");
+                        s1.ResetData(IP_Address, "OfficeRoom1");
                         reOr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องทำงาน(หลอดที่ 1) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องทำงาน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnOr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"OfficeRoom2");
+                        s1.ResetData(IP_Address, "OfficeRoom2");
                         reOr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องทำงาน(หลอดที่ 2) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องทำงาน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnCr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"CookRoom1");
+                        s1.ResetData(IP_Address, "CookRoom1");
                         reCr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องครัว(หลอดที่ 1) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องครัว(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnCr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"CookRoom2");
+                        s1.ResetData(IP_Address, "CookRoom2");
                         reCr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา ห้องครัว(หลอดที่ 2) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องครัว(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnPr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"ParkRoom1");
+                        s1.ResetData(IP_Address, "ParkRoom1");
                         rePr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา หน้าบ้าน(หลอดที่ 1) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา หน้าบ้าน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnPr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"ParkRoom2");
+                        s1.ResetData(IP_Address, "ParkRoom2");
                         rePr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา หน้าบ้าน(หลอดที่ 2) สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา หน้าบ้าน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
                 btnFd1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address,"FontDoor1");
+                        s1.ResetData(IP_Address, "FontDoor1");
                         reFd1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(),"ล้างเวลา หลอดไฟที่จอดรถ สำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "ล้างเวลา หลอดไฟที่จอดรถ สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -419,7 +417,7 @@ public class Setting_Lamp extends Activity {
 
     //BackPressed
     public void onBackPressed() {
-        final AlertDialog.Builder da1 = new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_DARK);
+        final AlertDialog.Builder da1 = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
         TextView msg = new TextView(this);
         msg.setText("หากต้องการออกจาก App โดยสมบูรณ์กรุณากลับไปหน้าแรกก่อน");
         msg.setGravity(Gravity.CENTER_HORIZONTAL);

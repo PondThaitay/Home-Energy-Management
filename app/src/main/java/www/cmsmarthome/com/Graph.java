@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.chart.BarChart;
@@ -29,6 +30,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,7 +53,7 @@ public class Graph {
 
     String BedRoom, ToiletRoom, SaloonRoom, OfficeRoom, CookRoom, ParkRoom, FontDoor;
 
-    public static double xD1,xD2,xD3,xD4,xD5,xD6,xD7,resultDay;
+    public static double xD1, xD2, xD3, xD4, xD5, xD6, xD7, resultDay;
 
     //Get Watt Lamp
     protected String wBedroom1 = "";
@@ -71,22 +73,20 @@ public class Graph {
     protected String wFontDoor1 = "";
     //
 
-    public static  int wBedRoom, wToilet, wSaloon, wOffice, wCook, wPark, wFontDoor;
+    public static int wBedRoom, wToilet, wSaloon, wOffice, wCook, wPark, wFontDoor;
 
-    public int ConvertMonth(int month)
-    {
+    public int ConvertMonth(int month) {
         int cM;
-        if(month <= 10)
-        {
+        if (month <= 10) {
             cM = (month + 1) % 12;
+        } else {
+            cM = 12;
         }
-        else {cM = 12;}
         return cM;
     }
 
     //getTime Day
-    public void getTimeRoomDay(String day, String month, String year, String status, String time_ID, String IP)
-    {
+    public void getTimeRoomDay(String day, String month, String year, String status, String time_ID, String IP) {
 
         String Timer_ID = time_ID;
         String IP_Address = IP;
@@ -95,14 +95,14 @@ public class Graph {
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sID",Timer_ID ));
-        params.add(new BasicNameValuePair("sIP",IP_Address ));
-        params.add(new BasicNameValuePair("sDay",day ));
-        params.add(new BasicNameValuePair("sMonth",month ));
-        params.add(new BasicNameValuePair("sYear",year ));
-        params.add(new BasicNameValuePair("sStatus",status ));
+        params.add(new BasicNameValuePair("sID", Timer_ID));
+        params.add(new BasicNameValuePair("sIP", IP_Address));
+        params.add(new BasicNameValuePair("sDay", day));
+        params.add(new BasicNameValuePair("sMonth", month));
+        params.add(new BasicNameValuePair("sYear", year));
+        params.add(new BasicNameValuePair("sStatus", status));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         JSONObject c;
         try {
@@ -116,15 +116,14 @@ public class Graph {
             ParkRoom = c.getString("ParkRoom");
             FontDoor = c.getString("FontDoor");
 
-            calculateUnit(BedRoom,ToiletRoom,SaloonRoom,OfficeRoom, CookRoom,ParkRoom,FontDoor);
+            calculateUnit(BedRoom, ToiletRoom, SaloonRoom, OfficeRoom, CookRoom, ParkRoom, FontDoor);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }//End getTime Day
 
     //getTime Month
-    public void getTimeRoomMonth(String month, String year, String status, String time_ID, String IP)
-    {
+    public void getTimeRoomMonth(String month, String year, String status, String time_ID, String IP) {
 
         String Timer_ID = time_ID;
         String IP_Address = IP;
@@ -133,13 +132,13 @@ public class Graph {
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sID",Timer_ID ));
-        params.add(new BasicNameValuePair("sIP",IP_Address ));
-        params.add(new BasicNameValuePair("sMonth",month ));
-        params.add(new BasicNameValuePair("sYear",year ));
-        params.add(new BasicNameValuePair("sStatus",status ));
+        params.add(new BasicNameValuePair("sID", Timer_ID));
+        params.add(new BasicNameValuePair("sIP", IP_Address));
+        params.add(new BasicNameValuePair("sMonth", month));
+        params.add(new BasicNameValuePair("sYear", year));
+        params.add(new BasicNameValuePair("sStatus", status));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         JSONObject c;
         try {
@@ -153,15 +152,14 @@ public class Graph {
             ParkRoom = c.getString("ParkRoom");
             FontDoor = c.getString("FontDoor");
 
-            calculateUnit(BedRoom,ToiletRoom,SaloonRoom,OfficeRoom, CookRoom,ParkRoom,FontDoor);
+            calculateUnit(BedRoom, ToiletRoom, SaloonRoom, OfficeRoom, CookRoom, ParkRoom, FontDoor);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }//End getTime Month
 
     //getTime Year
-    public void getTimeRoomYear(String year, String status, String time_ID, String IP)
-    {
+    public void getTimeRoomYear(String year, String status, String time_ID, String IP) {
 
         String Timer_ID = time_ID;
         String IP_Address = IP;
@@ -170,12 +168,12 @@ public class Graph {
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sID",Timer_ID ));
-        params.add(new BasicNameValuePair("sIP",IP_Address ));
-        params.add(new BasicNameValuePair("sYear",year ));
-        params.add(new BasicNameValuePair("sStatus",status ));
+        params.add(new BasicNameValuePair("sID", Timer_ID));
+        params.add(new BasicNameValuePair("sIP", IP_Address));
+        params.add(new BasicNameValuePair("sYear", year));
+        params.add(new BasicNameValuePair("sStatus", status));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         JSONObject c;
         try {
@@ -189,22 +187,21 @@ public class Graph {
             ParkRoom = c.getString("ParkRoom");
             FontDoor = c.getString("FontDoor");
 
-            calculateUnit(BedRoom,ToiletRoom,SaloonRoom,OfficeRoom, CookRoom,ParkRoom,FontDoor);
+            calculateUnit(BedRoom, ToiletRoom, SaloonRoom, OfficeRoom, CookRoom, ParkRoom, FontDoor);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }//End getTime Year
 
     //Get Watt
-    public void getWatt(String ip)
-    {
+    public void getWatt(String ip) {
         String url = "http://www.cm-smarthome.com/android/getWatt.php";
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sIP",ip));
+        params.add(new BasicNameValuePair("sIP", ip));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         JSONObject c;
         try {
@@ -231,13 +228,13 @@ public class Graph {
 
             wFontDoor1 = c.getString("Fontdoor");
 
-            wBedRoom = (Integer.parseInt(wBedroom1)+Integer.parseInt(wBedroom2))/2;
+            wBedRoom = (Integer.parseInt(wBedroom1) + Integer.parseInt(wBedroom2)) / 2;
             wToilet = Integer.parseInt(wToiletroom1);
-            wSaloon = (Integer.parseInt(wSaloonroom1)+Integer.parseInt(wSaloonroom2)+Integer.parseInt(wSaloonroom3)
-                      +Integer.parseInt(wSaloonroom4)+Integer.parseInt(wSaloonroom5))/5;
-            wOffice = (Integer.parseInt(wOfficeroom1)+Integer.parseInt(wOfficeroom2))/2;
-            wCook = (Integer.parseInt(wCookroom1)+Integer.parseInt(wCookroom2))/2;
-            wPark = (Integer.parseInt(wParkroom1)+Integer.parseInt(wParkroom2))/2;
+            wSaloon = (Integer.parseInt(wSaloonroom1) + Integer.parseInt(wSaloonroom2) + Integer.parseInt(wSaloonroom3)
+                    + Integer.parseInt(wSaloonroom4) + Integer.parseInt(wSaloonroom5)) / 5;
+            wOffice = (Integer.parseInt(wOfficeroom1) + Integer.parseInt(wOfficeroom2)) / 2;
+            wCook = (Integer.parseInt(wCookroom1) + Integer.parseInt(wCookroom2)) / 2;
+            wPark = (Integer.parseInt(wParkroom1) + Integer.parseInt(wParkroom2)) / 2;
             wFontDoor = Integer.parseInt(wFontDoor1);
 
         } catch (JSONException e) {
@@ -247,9 +244,8 @@ public class Graph {
     //End Get Watt
 
     //update Watt
-    public void setWatt(String wbr1,String wbr2,String wtr,String wsl1,String wsl2,String wsl3,String wsl4,String wsl5
-            ,String wor1,String wor2,String wco1,String wco2,String wpr1,String wpr2,String wfd,String wip)
-    {
+    public void setWatt(String wbr1, String wbr2, String wtr, String wsl1, String wsl2, String wsl3, String wsl4, String wsl5
+            , String wor1, String wor2, String wco1, String wco2, String wpr1, String wpr2, String wfd, String wip) {
 
         String url = "http://www.cm-smarthome.com/android/saveWatt.php";
 
@@ -257,24 +253,24 @@ public class Graph {
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sIP",wip));
-        params.add(new BasicNameValuePair("sBr1",wbr1));
-        params.add(new BasicNameValuePair("sBr2",wbr2));
-        params.add(new BasicNameValuePair("sToi",wtr));
-        params.add(new BasicNameValuePair("sSl1",wsl1));
-        params.add(new BasicNameValuePair("sSl2",wsl2));
-        params.add(new BasicNameValuePair("sSl3",wsl3));
-        params.add(new BasicNameValuePair("sSl4",wsl4));
-        params.add(new BasicNameValuePair("sSl5",wsl5));
-        params.add(new BasicNameValuePair("sOr1",wor1));
-        params.add(new BasicNameValuePair("sOr2",wor2));
-        params.add(new BasicNameValuePair("sCr1",wco1));
-        params.add(new BasicNameValuePair("sCr2",wco2));
-        params.add(new BasicNameValuePair("sPr1",wpr1));
-        params.add(new BasicNameValuePair("sPr2",wpr2));
-        params.add(new BasicNameValuePair("sFd",wfd));
+        params.add(new BasicNameValuePair("sIP", wip));
+        params.add(new BasicNameValuePair("sBr1", wbr1));
+        params.add(new BasicNameValuePair("sBr2", wbr2));
+        params.add(new BasicNameValuePair("sToi", wtr));
+        params.add(new BasicNameValuePair("sSl1", wsl1));
+        params.add(new BasicNameValuePair("sSl2", wsl2));
+        params.add(new BasicNameValuePair("sSl3", wsl3));
+        params.add(new BasicNameValuePair("sSl4", wsl4));
+        params.add(new BasicNameValuePair("sSl5", wsl5));
+        params.add(new BasicNameValuePair("sOr1", wor1));
+        params.add(new BasicNameValuePair("sOr2", wor2));
+        params.add(new BasicNameValuePair("sCr1", wco1));
+        params.add(new BasicNameValuePair("sCr2", wco2));
+        params.add(new BasicNameValuePair("sPr1", wpr1));
+        params.add(new BasicNameValuePair("sPr2", wpr2));
+        params.add(new BasicNameValuePair("sFd", wfd));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         String strStatusID = "0";
         String strError = "Unknow Status!";
@@ -291,8 +287,7 @@ public class Graph {
     }
     //End update Watt
 
-    public void calculateUnit(String x1,String x2,String x3,String x4,String x5,String x6,String x7)
-    {
+    public void calculateUnit(String x1, String x2, String x3, String x4, String x5, String x6, String x7) {
         int rO = 1;
         int rT = 2;
         int rF = 5;
@@ -319,13 +314,13 @@ public class Graph {
         String[] part7 = x7.split(":");
         String part07 = part7[0];
 
-        xD1 = ((wBedRoom * rT)/st)*Double.parseDouble(part01);
-        xD2 = ((wToilet * rO)/st)*Double.parseDouble(part02);
-        xD3 = ((wSaloon * rF)/st)*Double.parseDouble(part03);
-        xD4 = ((wOffice * rT)/st)*Double.parseDouble(part04);
-        xD5 = ((wCook * rT)/st)*Double.parseDouble(part05);
-        xD6 = ((wPark * rT)/st)*Double.parseDouble(part06);
-        xD7 = ((wFontDoor * rO)/st)*Double.parseDouble(part07);
+        xD1 = ((wBedRoom * rT) / st) * Double.parseDouble(part01);
+        xD2 = ((wToilet * rO) / st) * Double.parseDouble(part02);
+        xD3 = ((wSaloon * rF) / st) * Double.parseDouble(part03);
+        xD4 = ((wOffice * rT) / st) * Double.parseDouble(part04);
+        xD5 = ((wCook * rT) / st) * Double.parseDouble(part05);
+        xD6 = ((wPark * rT) / st) * Double.parseDouble(part06);
+        xD7 = ((wFontDoor * rO) / st) * Double.parseDouble(part07);
 
         DecimalFormat df = new DecimalFormat("#.##");
 
@@ -337,7 +332,7 @@ public class Graph {
         xD6 = Double.valueOf(df.format(xD6));
         xD7 = Double.valueOf(df.format(xD7));
 
-        resultDay = xD1+xD2+xD3+xD4+xD5+xD6+xD7;
+        resultDay = xD1 + xD2 + xD3 + xD4 + xD5 + xD6 + xD7;
         resultDay = Double.valueOf(df.format(resultDay));
     }
 
@@ -373,7 +368,8 @@ public class Graph {
     //Bar Graph to Day and Month
     public static class PlaceholderFragmentBarDM extends Fragment {
 
-        public PlaceholderFragmentBarDM() {}
+        public PlaceholderFragmentBarDM() {
+        }
 
         private View mView;
         private GraphicalView mGraphView;
@@ -383,16 +379,16 @@ public class Graph {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             mView = rootView;
-            initData(xD1,xD2,xD3,xD4,xD5,xD6,xD7);
+            initData(xD1, xD2, xD3, xD4, xD5, xD6, xD7);
             return rootView;
         }
 
-        private void initData(double x1, double x2 , double x3 ,double x4 ,double x5,double x6 ,double x7) {
-            String[] months = {"ห้องนอน","ห้องน้ำ","ห้องนั่งเล่น","ห้องทำงาน","ห้องครัว","หน้าบ้าน","ที่จอดรถ"};
+        private void initData(double x1, double x2, double x3, double x4, double x5, double x6, double x7) {
+            String[] months = {"ห้องนอน", "ห้องน้ำ", "ห้องนั่งเล่น", "ห้องทำงาน", "ห้องครัว", "หน้าบ้าน", "ที่จอดรถ"};
 
-            int[] index = {1,2,3,4,5,6,7};
+            int[] index = {1, 2, 3, 4, 5, 6, 7};
 
-            double[] incomeA = {x1,x2,x3,x4,x5,x6,x7};
+            double[] incomeA = {x1, x2, x3, x4, x5, x6, x7};
 
             XYSeries seriesA = new XYSeries("หน่วยไฟที่ใช้");
 
@@ -434,7 +430,7 @@ public class Graph {
             drawChart(dataset, multipleSeriesRenderer);
         }
 
-        private void drawChart(XYMultipleSeriesDataset dataset,XYMultipleSeriesRenderer renderer) {
+        private void drawChart(XYMultipleSeriesDataset dataset, XYMultipleSeriesRenderer renderer) {
 
             if (null == mGraphView) {
                 mGraphView = ChartFactory.getBarChartView(getActivity(), dataset, renderer, BarChart.Type.DEFAULT);
@@ -451,7 +447,8 @@ public class Graph {
     //Line Graph to Day and Month
     public static class PlaceholderFragmentLineDM extends Fragment {
 
-        public PlaceholderFragmentLineDM() {}
+        public PlaceholderFragmentLineDM() {
+        }
 
         private View mView;
         private GraphicalView mGraphView;
@@ -461,16 +458,16 @@ public class Graph {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             mView = rootView;
-            initData(xD1,xD2,xD3,xD4,xD5,xD6,xD7);
+            initData(xD1, xD2, xD3, xD4, xD5, xD6, xD7);
             return rootView;
         }
 
-        private void initData(double x1, double x2 , double x3 ,double x4 ,double x5,double x6 ,double x7) {
-            String[] months = {"ห้องนอน","ห้องน้ำ","ห้องนั่งเล่น","ห้องทำงาน","ห้องครัว","หน้าบ้าน","ที่จอดรถ"};
+        private void initData(double x1, double x2, double x3, double x4, double x5, double x6, double x7) {
+            String[] months = {"ห้องนอน", "ห้องน้ำ", "ห้องนั่งเล่น", "ห้องทำงาน", "ห้องครัว", "หน้าบ้าน", "ที่จอดรถ"};
 
-            int[] index = {1,2,3,4,5,6,7};
+            int[] index = {1, 2, 3, 4, 5, 6, 7};
 
-            double[] incomeA = {x1,x2,x3,x4,x5,x6,x7};
+            double[] incomeA = {x1, x2, x3, x4, x5, x6, x7};
 
             XYSeries seriesA = new XYSeries("หน่วยไฟที่ใช้");
 
@@ -534,7 +531,8 @@ public class Graph {
     //Bar Year
     public static class PlaceholderFragmentBar extends Fragment {
 
-        public PlaceholderFragmentBar() {}
+        public PlaceholderFragmentBar() {
+        }
 
         private View mView;
         private GraphicalView mGraphView;
@@ -554,15 +552,15 @@ public class Graph {
                     "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."
             };
 
-            int[] index = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12};
+            int[] index = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 
-            int[] incomeA = { 150, 55, 70, 80, 120, 90, 200, 100, 180, 210, 250, 160};
-            int[] incomeA1 = { 20, 30, 40, 50, 60,  70, 80,  90,  100, 200, 300, 55};
-            int[] incomeA2 = { 80, 60,200, 50, 110, 95, 250, 180, 190, 200, 210, 220};
-            int[] incomeA3 = { 80, 50, 75, 80, 125, 50, 215, 123, 124, 256, 257, 190};
-            int[] incomeA4 = { 78, 60, 70, 85, 120, 100,210, 140, 185, 220, 250, 131};
-            int[] incomeA5 = { 30, 40, 79, 95, 150, 190,220, 160, 186, 230, 260, 121};
-            int[] incomeA6 = { 40, 30, 80, 100, 160,170,230, 200, 187, 280, 50, 146};
+            int[] incomeA = {150, 55, 70, 80, 120, 90, 200, 100, 180, 210, 250, 160};
+            int[] incomeA1 = {20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 55};
+            int[] incomeA2 = {80, 60, 200, 50, 110, 95, 250, 180, 190, 200, 210, 220};
+            int[] incomeA3 = {80, 50, 75, 80, 125, 50, 215, 123, 124, 256, 257, 190};
+            int[] incomeA4 = {78, 60, 70, 85, 120, 100, 210, 140, 185, 220, 250, 131};
+            int[] incomeA5 = {30, 40, 79, 95, 150, 190, 220, 160, 186, 230, 260, 121};
+            int[] incomeA6 = {40, 30, 80, 100, 160, 170, 230, 200, 187, 280, 50, 146};
 
             XYSeries seriesA = new XYSeries("ห้องนอน");
             XYSeries seriesA1 = new XYSeries("ห้องนั่งเล่น");
@@ -661,7 +659,7 @@ public class Graph {
             drawChart(dataset, multipleSeriesRenderer);
         }
 
-        private void drawChart(XYMultipleSeriesDataset dataset,XYMultipleSeriesRenderer renderer) {
+        private void drawChart(XYMultipleSeriesDataset dataset, XYMultipleSeriesRenderer renderer) {
 
             if (null == mGraphView) {
                 mGraphView = ChartFactory.getBarChartView(getActivity(), dataset, renderer, BarChart.Type.DEFAULT);
@@ -679,7 +677,8 @@ public class Graph {
     //Line Year
     public static class PlaceholderFragmentLine extends Fragment {
 
-        public PlaceholderFragmentLine() {}
+        public PlaceholderFragmentLine() {
+        }
 
         private View mView;
         private GraphicalView mGraphView;
@@ -699,15 +698,15 @@ public class Graph {
                     "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."
             };
 
-            int[] index = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12};
+            int[] index = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 
             int[] incomeA = {150, 55, 70, 80, 120, 90, 200, 100, 180, 210, 250, 160};
-            int[] incomeA1 = { 20, 30, 40, 50, 60,  70, 80,  90,  100, 200, 300, 55};
-            int[] incomeA2 = { 80, 60,200, 50, 110, 95, 250, 180, 190, 200, 210, 220};
-            int[] incomeA3 = { 80, 50, 75, 80, 125, 50, 215, 123, 124, 256, 257, 190};
-            int[] incomeA4 = { 78, 60, 70, 85, 120, 100,210, 140, 185, 220, 250, 131};
-            int[] incomeA5 = { 30, 40, 79, 95, 150, 190,220, 160, 186, 230, 260, 121};
-            int[] incomeA6 = { 40, 30, 80, 100, 160,170,230, 200, 187, 280, 50, 146};
+            int[] incomeA1 = {20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 55};
+            int[] incomeA2 = {80, 60, 200, 50, 110, 95, 250, 180, 190, 200, 210, 220};
+            int[] incomeA3 = {80, 50, 75, 80, 125, 50, 215, 123, 124, 256, 257, 190};
+            int[] incomeA4 = {78, 60, 70, 85, 120, 100, 210, 140, 185, 220, 250, 131};
+            int[] incomeA5 = {30, 40, 79, 95, 150, 190, 220, 160, 186, 230, 260, 121};
+            int[] incomeA6 = {40, 30, 80, 100, 160, 170, 230, 200, 187, 280, 50, 146};
 
             XYSeries seriesA = new XYSeries("ห้องนอน");
             XYSeries seriesA1 = new XYSeries("ห้องนั่งเล่น");

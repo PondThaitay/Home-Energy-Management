@@ -1,6 +1,7 @@
 package www.cmsmarthome.com;
 
 import android.util.Log;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -13,6 +14,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -95,10 +97,9 @@ public class SumTime {
     //end split :
 
     //Update Time to Timer DB
-    public boolean UpdateData(String Timeinput1 , String Timeinput2, String Timeinput3, String Timeinput4, String Timeinput5
+    public boolean UpdateData(String Timeinput1, String Timeinput2, String Timeinput3, String Timeinput4, String Timeinput5
             , String Timeinput6, String Timeinput7, String Timeinput8, String Timeinput9, String Timeinput10, String Timeinput11
-            , String Timeinput12, String Timeinput13, String Timeinput14, String Timeinput15, String Date , String ID)
-    {
+            , String Timeinput12, String Timeinput13, String Timeinput14, String Timeinput15, String Date, String ID) {
 
         String url = "http://www.cm-smarthome.com/android/updateData1.php";
 
@@ -122,7 +123,7 @@ public class SumTime {
         params.add(new BasicNameValuePair("sTimer13", Timeinput13));
         params.add(new BasicNameValuePair("sTimer14", Timeinput14));
         params.add(new BasicNameValuePair("sTimer15", Timeinput15));
-        params.add(new BasicNameValuePair("sDate" , Date));
+        params.add(new BasicNameValuePair("sDate", Date));
 
         String resultServer = getHttpPost(url, params);
 
@@ -144,8 +145,7 @@ public class SumTime {
     //End Method Update Time to Timer DB
 
     //get Data From Timer DB
-    public void getDataTimer(String time_ID , String IP)
-    {
+    public void getDataTimer(String time_ID, String IP) {
 
         String Timer_ID = time_ID;
         String IP_Address = IP;
@@ -156,10 +156,10 @@ public class SumTime {
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sID",Timer_ID ));
-        params.add(new BasicNameValuePair("sIP",IP_Address ));
+        params.add(new BasicNameValuePair("sID", Timer_ID));
+        params.add(new BasicNameValuePair("sIP", IP_Address));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         JSONObject c;
         try {
@@ -193,10 +193,9 @@ public class SumTime {
     //End Method getTime From Timer DB
 
     //Save Time to timer_backup DB after Exit App
-    public void BackupTime(String Username,String IP,String Bedroom1,String Bedroom2,String Toiletroom1,String Saloonroom1,String Saloonroom2,String Saloonroom3
-            ,String Saloonroom4,String Saloonroom5,String Offineroom1,String Officeroom2,String Cookroom1,String Cookroom2,String Parkroom1,String Parkroom2
-            ,String Fontdoor1,String Date)
-    {
+    public void BackupTime(String Username, String IP, String Bedroom1, String Bedroom2, String Toiletroom1, String Saloonroom1, String Saloonroom2, String Saloonroom3
+            , String Saloonroom4, String Saloonroom5, String Offineroom1, String Officeroom2, String Cookroom1, String Cookroom2, String Parkroom1, String Parkroom2
+            , String Fontdoor1, String Date) {
         String url = "http://www.cm-smarthome.com/android/backupTime.php";
         //String url = "http://192.168.2.143/project/backupTime.php";
 
@@ -204,24 +203,24 @@ public class SumTime {
 
         params.add(new BasicNameValuePair("sUsername", Username));
         params.add(new BasicNameValuePair("sIP", IP));
-        params.add(new BasicNameValuePair("sBedRoom1",Bedroom1));
-        params.add(new BasicNameValuePair("sBedRoom2",Bedroom2));
-        params.add(new BasicNameValuePair("sToiletRoom1",Toiletroom1));
-        params.add(new BasicNameValuePair("sSaloonRoom1",Saloonroom1));
-        params.add(new BasicNameValuePair("sSaloonRoom2",Saloonroom2));
-        params.add(new BasicNameValuePair("sSaloonRoom3",Saloonroom3));
-        params.add(new BasicNameValuePair("sSaloonRoom4",Saloonroom4));
-        params.add(new BasicNameValuePair("sSaloonRoom5",Saloonroom5));
-        params.add(new BasicNameValuePair("sOfficeRoom1",Offineroom1));
-        params.add(new BasicNameValuePair("sOfficeRoom2",Officeroom2));
-        params.add(new BasicNameValuePair("sCookRoom1",Cookroom1));
-        params.add(new BasicNameValuePair("sCookRoom2",Cookroom2));
-        params.add(new BasicNameValuePair("sParkRoom1",Parkroom1));
-        params.add(new BasicNameValuePair("sParkRoom2",Parkroom2));
-        params.add(new BasicNameValuePair("sFontDoor1",Fontdoor1));
+        params.add(new BasicNameValuePair("sBedRoom1", Bedroom1));
+        params.add(new BasicNameValuePair("sBedRoom2", Bedroom2));
+        params.add(new BasicNameValuePair("sToiletRoom1", Toiletroom1));
+        params.add(new BasicNameValuePair("sSaloonRoom1", Saloonroom1));
+        params.add(new BasicNameValuePair("sSaloonRoom2", Saloonroom2));
+        params.add(new BasicNameValuePair("sSaloonRoom3", Saloonroom3));
+        params.add(new BasicNameValuePair("sSaloonRoom4", Saloonroom4));
+        params.add(new BasicNameValuePair("sSaloonRoom5", Saloonroom5));
+        params.add(new BasicNameValuePair("sOfficeRoom1", Offineroom1));
+        params.add(new BasicNameValuePair("sOfficeRoom2", Officeroom2));
+        params.add(new BasicNameValuePair("sCookRoom1", Cookroom1));
+        params.add(new BasicNameValuePair("sCookRoom2", Cookroom2));
+        params.add(new BasicNameValuePair("sParkRoom1", Parkroom1));
+        params.add(new BasicNameValuePair("sParkRoom2", Parkroom2));
+        params.add(new BasicNameValuePair("sFontDoor1", Fontdoor1));
         params.add(new BasicNameValuePair("sDate", Date));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         String strStatusID = "0";
         //String strError = "Unknow Status!";
@@ -239,9 +238,8 @@ public class SumTime {
     //End Save Time
 
     //update MaxTime
-    public void setMaxTime(String br1,String br2,String tr,String sl1,String sl2,String sl3,String sl4,String sl5
-                            ,String or1,String or2,String co1,String co2,String pr1,String pr2,String fd,String ip)
-    {
+    public void setMaxTime(String br1, String br2, String tr, String sl1, String sl2, String sl3, String sl4, String sl5
+            , String or1, String or2, String co1, String co2, String pr1, String pr2, String fd, String ip) {
 
         String url = "http://www.cm-smarthome.com/android/saveMaxTime.php";
 
@@ -249,24 +247,24 @@ public class SumTime {
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sIP",ip));
-        params.add(new BasicNameValuePair("sBr1",br1));
-        params.add(new BasicNameValuePair("sBr2",br2));
-        params.add(new BasicNameValuePair("sToi",tr));
-        params.add(new BasicNameValuePair("sSl1",sl1));
-        params.add(new BasicNameValuePair("sSl2",sl2));
-        params.add(new BasicNameValuePair("sSl3",sl3));
-        params.add(new BasicNameValuePair("sSl4",sl4));
-        params.add(new BasicNameValuePair("sSl5",sl5));
-        params.add(new BasicNameValuePair("sOr1",or1));
-        params.add(new BasicNameValuePair("sOr2",or2));
-        params.add(new BasicNameValuePair("sCr1",co1));
-        params.add(new BasicNameValuePair("sCr2",co2));
-        params.add(new BasicNameValuePair("sPr1",pr1));
-        params.add(new BasicNameValuePair("sPr2",pr2));
-        params.add(new BasicNameValuePair("sFd",fd));
+        params.add(new BasicNameValuePair("sIP", ip));
+        params.add(new BasicNameValuePair("sBr1", br1));
+        params.add(new BasicNameValuePair("sBr2", br2));
+        params.add(new BasicNameValuePair("sToi", tr));
+        params.add(new BasicNameValuePair("sSl1", sl1));
+        params.add(new BasicNameValuePair("sSl2", sl2));
+        params.add(new BasicNameValuePair("sSl3", sl3));
+        params.add(new BasicNameValuePair("sSl4", sl4));
+        params.add(new BasicNameValuePair("sSl5", sl5));
+        params.add(new BasicNameValuePair("sOr1", or1));
+        params.add(new BasicNameValuePair("sOr2", or2));
+        params.add(new BasicNameValuePair("sCr1", co1));
+        params.add(new BasicNameValuePair("sCr2", co2));
+        params.add(new BasicNameValuePair("sPr1", pr1));
+        params.add(new BasicNameValuePair("sPr2", pr2));
+        params.add(new BasicNameValuePair("sFd", fd));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         String strStatusID = "0";
         String strError = "Unknow Status!";
@@ -284,15 +282,14 @@ public class SumTime {
     //End update MaxTime
 
     //Get Maximum Time
-    public void getMaxTime(String ip)
-    {
+    public void getMaxTime(String ip) {
         String url = "http://www.cm-smarthome.com/android/maxTime.php";
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-        params.add(new BasicNameValuePair("sIP",ip));
+        params.add(new BasicNameValuePair("sIP", ip));
 
-        String resultServer  = getHttpPost(url,params);
+        String resultServer = getHttpPost(url, params);
 
         JSONObject c;
         try {
@@ -326,8 +323,7 @@ public class SumTime {
     //End Get Maximum Time
 
     //Reset Time to timer_backup DB
-    public boolean ResetData(String IP , String Lamp)
-    {
+    public boolean ResetData(String IP, String Lamp) {
 
         String url = "http://www.cm-smarthome.com/android/resetData.php";
 
@@ -355,11 +351,10 @@ public class SumTime {
     }
     //End Reset Time to timer_backup DB
 
-    public void SplitString (String input1,String pinput1,String input2,String pinput2,String input3,String pinput3,String input4,String pinput4
-                            ,String input5,String pinput5,String input6,String pinput6,String input7,String pinput7,String input8,String pinput8
-                            ,String input9,String pinput9,String input10,String pinput10,String input11,String pinput11,String input12,String pinput12
-                            ,String input13,String pinput13,String input14,String pinput14,String input15,String pinput15)
-    {
+    public void SplitString(String input1, String pinput1, String input2, String pinput2, String input3, String pinput3, String input4, String pinput4
+            , String input5, String pinput5, String input6, String pinput6, String input7, String pinput7, String input8, String pinput8
+            , String input9, String pinput9, String input10, String pinput10, String input11, String pinput11, String input12, String pinput12
+            , String input13, String pinput13, String input14, String pinput14, String input15, String pinput15) {
         String br0[] = input1.split(":");
         String partbr0 = br0[0];
         String pbr0[] = pinput1.split(":");
@@ -468,50 +463,95 @@ public class SumTime {
         String waning = "1";
         String normal = "0";
 
-        if(x0 >= (y0-24)){spBedroom1 = waning;}
-        else{spBedroom1 = normal;}
+        if (x0 >= (y0 - 24)) {
+            spBedroom1 = waning;
+        } else {
+            spBedroom1 = normal;
+        }
 
-        if(x1 >= (y1-24)){spBedroom2 = waning;}
-        else{spBedroom2 = normal;}
+        if (x1 >= (y1 - 24)) {
+            spBedroom2 = waning;
+        } else {
+            spBedroom2 = normal;
+        }
 
-        if(x2 >= (y2-24)){spToiletroom1 = waning;}
-        else{spToiletroom1 = normal;}
+        if (x2 >= (y2 - 24)) {
+            spToiletroom1 = waning;
+        } else {
+            spToiletroom1 = normal;
+        }
 
-        if(x3 >= (y3-24)){spSaloonroom1 = waning;}
-        else{spSaloonroom1 = normal;}
+        if (x3 >= (y3 - 24)) {
+            spSaloonroom1 = waning;
+        } else {
+            spSaloonroom1 = normal;
+        }
 
-        if(x4 >= (y4-24)){spSaloonroom2 = waning;}
-        else{spSaloonroom2 = normal;}
+        if (x4 >= (y4 - 24)) {
+            spSaloonroom2 = waning;
+        } else {
+            spSaloonroom2 = normal;
+        }
 
-        if(x5 >= (y5-24)){spSaloonroom3 = waning;}
-        else{spSaloonroom3 = normal;}
+        if (x5 >= (y5 - 24)) {
+            spSaloonroom3 = waning;
+        } else {
+            spSaloonroom3 = normal;
+        }
 
-        if(x6 >= (y6-24)){spSaloonroom4 = waning;}
-        else{spSaloonroom4 = normal;}
+        if (x6 >= (y6 - 24)) {
+            spSaloonroom4 = waning;
+        } else {
+            spSaloonroom4 = normal;
+        }
 
-        if(x7 >= (y7-24)){spSaloonroom5 = waning;}
-        else{spSaloonroom5 = normal;}
+        if (x7 >= (y7 - 24)) {
+            spSaloonroom5 = waning;
+        } else {
+            spSaloonroom5 = normal;
+        }
 
-        if(x8 >= (y8-24)){spOfficeroom1 = waning;}
-        else{spOfficeroom1 = normal;}
+        if (x8 >= (y8 - 24)) {
+            spOfficeroom1 = waning;
+        } else {
+            spOfficeroom1 = normal;
+        }
 
-        if(x9 >= (y9-24)){spOfficeroom2 = waning;}
-        else{spOfficeroom2 = normal;}
+        if (x9 >= (y9 - 24)) {
+            spOfficeroom2 = waning;
+        } else {
+            spOfficeroom2 = normal;
+        }
 
-        if(x10 >= (y10-24)){spCookroom1 = waning;}
-        else{spCookroom1 = normal;}
+        if (x10 >= (y10 - 24)) {
+            spCookroom1 = waning;
+        } else {
+            spCookroom1 = normal;
+        }
 
-        if(x11 >= (y11-24)){spCookroom2 = waning;}
-        else{spCookroom2 = normal;}
+        if (x11 >= (y11 - 24)) {
+            spCookroom2 = waning;
+        } else {
+            spCookroom2 = normal;
+        }
 
-        if(x12 >= (y12-24)){spParkroom1 = waning;}
-        else{spParkroom1 = normal;}
+        if (x12 >= (y12 - 24)) {
+            spParkroom1 = waning;
+        } else {
+            spParkroom1 = normal;
+        }
 
-        if(x13 >= (y13-24)){spParkroom2 = waning;}
-        else{spParkroom2 = normal;}
+        if (x13 >= (y13 - 24)) {
+            spParkroom2 = waning;
+        } else {
+            spParkroom2 = normal;
+        }
 
-        if(x14 >= (y14-24)){spFontDoor1 = waning;}
-        else{spFontDoor1 = normal;}
+        if (x14 >= (y14 - 24)) {
+            spFontDoor1 = waning;
+        } else {
+            spFontDoor1 = normal;
+        }
     }
 
     public String getHttpPost(String url, List<NameValuePair> params) {

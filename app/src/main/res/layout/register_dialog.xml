@@ -25,7 +25,9 @@
         android:ems="10"
         android:hint="ระบุชื่อผู้ใช้" />
 
-    <requestFocus /><TextView
+    <requestFocus />
+
+    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +37,7 @@
         android:layout_marginTop="17dp"
         android:text="ชื่อผู้ใช้ : "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black" />
 
     <EditText
         android:id="@+id/rtPass"
@@ -46,7 +48,7 @@
         android:ems="10"
         android:hint="ระบุรหัสผ่าน">
 
-        
+
     </EditText>
 
     <EditText

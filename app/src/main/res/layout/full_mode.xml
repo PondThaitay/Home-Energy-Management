@@ -1,76 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#E0E0E0">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/head"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:padding="10dp"
-        android:id="@+id/head">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/title"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:id="@+id/title"
-            android:padding="10dp"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
             android:background="@drawable/roundf"
-            android:layout_margin="10dp">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
+                android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="โหมดความสว่างเต็มที่"
-                android:id="@+id/textView11"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="20dp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="โหมดความสว่างเต็มที่ จะมีการทำงาน คือ"
                 android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp" />
+                android:text="โหมดความสว่างเต็มที่ จะมีการทำงาน คือ"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
+                android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="จะเปิดการทำงานของหลอดไฟทุกหลอด"
-                android:id="@+id/textView28" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
+                android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="ถายในบ้านโดยให้แสงสว่างเต็มที่ 100%"
-                android:id="@+id/textView29" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
-                android:id="@+id/imageView"
-                android:src="@drawable/mode_full"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:src="@drawable/mode_full" />
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/rowBtn"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:id="@+id/rowBtn">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <Button
+                    android:id="@+id/btnAllon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ทำงาน"
-                    android:id="@+id/btnAllon"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="ทำงาน" />
             </LinearLayout>
 
         </LinearLayout>

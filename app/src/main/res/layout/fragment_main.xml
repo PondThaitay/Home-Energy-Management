@@ -1,17 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_container1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/graph_container1"
-    tools:context="com.devahoy.sample.achartengine.MainActivity$PlaceholderFragment" >
+    tools:context="com.devahoy.sample.achartengine.MainActivity$PlaceholderFragment">
 
     <RelativeLayout
+        android:id="@+id/graph_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:id="@+id/graph_container"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentStart="true">
 
     </RelativeLayout>
 
