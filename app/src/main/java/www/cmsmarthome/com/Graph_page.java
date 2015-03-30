@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,9 +32,9 @@ public class Graph_page extends FragmentActivity {
 
     private String statusD, statusM, statusY;
 
-    private String Pday;
-    private String Pmonth;
-    private String Pyear;
+    private int Pday;
+    private int Pmonth;
+    private int Pyear;
 
     private String TimerID;
     private String UserDetailsID;
@@ -67,9 +68,11 @@ public class Graph_page extends FragmentActivity {
         sYear = (Spinner) findViewById(R.id.sYear);
 
         //Current DD/MM/YYYY
-        Pday = g1.d;
-        Pmonth = g1.m;
-        Pyear = g1.y;
+        Pday = Integer.valueOf(g1.d);
+        Pmonth = Integer.valueOf(g1.m);
+        Pyear = Integer.valueOf(g1.y);
+
+        ToDay();
 
         //AdapterDay
         final String[] day = getResources().getStringArray(R.array.day);
@@ -87,9 +90,14 @@ public class Graph_page extends FragmentActivity {
         ArrayAdapter<String> arrayAdapterYear = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, year);
         sYear.setAdapter(arrayAdapterYear);
 
+        sDay.setSelection(Pday);
+        sMonth.setSelection(Pmonth);
+        sYear.setSelection(Pyear);
+
         sDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 if (parent.getItemAtPosition(position).equals("-")) {
                     statusD = null;
                 } else {
@@ -275,6 +283,35 @@ public class Graph_page extends FragmentActivity {
             txtUnit.setText("หน่วยไฟฟ้ารวม : 0");
             Toast.makeText(getBaseContext(), "รูปแบบการเลือกไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void ToDay() {
+
+        g1.getWatt(IP_Address);
+
+        String d = String.valueOf(g1.cDay);
+        String m = String.valueOf(g1.m);
+        String y = String.valueOf(g1.cYear);
+
+        Log.e("See", d + "\n" + m + "\n" + y);
+
+        String status = "1";
+        g1.getTimeRoomDay(d, m, y, status, TimerID, IP_Address);
+
+        //Bar
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, new Graph.PlaceholderFragmentBarDM())
+                .commit();
+        txtUnit.setText("หน่วยไฟฟ้ารวม (วัน) : " + String.valueOf(g1.resultDay));
+
+        System.out.println(g1.BedRoom + "\n" + g1.ToiletRoom + "\n" + g1.SaloonRoom + "\n"
+                + g1.OfficeRoom + "\n" + g1.CookRoom + "\n" + g1.ParkRoom + "\n" + g1.FontDoor);
+
+        System.out.println(g1.wBedroom1 + "\n" + g1.wBedroom2 + "\n" + g1.wToiletroom1 + "\n" + g1.wSaloonroom1 + "\n" + g1.wSaloonroom2 + "\n"
+                + g1.wSaloonroom3 + "\n" + g1.wSaloonroom4 + "\n" + g1.wSaloonroom5 + "\n" + g1.wOfficeroom1 + "\n" + g1.wOfficeroom2 + "\n"
+                + g1.wCookroom1 + "\n" + g1.wCookroom2 + "\n" + g1.wParkroom1 + "\n" + g1.wParkroom2 + "\n" + g1.wFontDoor1);
+
+        Toast.makeText(getBaseContext(), "กราฟวันนี้", Toast.LENGTH_SHORT).show();
     }
 
     //BackPressed

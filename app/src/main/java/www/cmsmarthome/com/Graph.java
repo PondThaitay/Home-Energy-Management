@@ -49,7 +49,7 @@ public class Graph {
 
     String d = String.valueOf(cDay);
     String m = String.valueOf(ConvertMonth(cMonth));
-    String y = String.valueOf(cYear);
+    String y = String.valueOf(ConvertYear(cYear));
 
     String BedRoom, ToiletRoom, SaloonRoom, OfficeRoom, CookRoom, ParkRoom, FontDoor;
 
@@ -83,6 +83,40 @@ public class Graph {
             cM = 12;
         }
         return cM;
+    }
+
+    public int ConvertYear(int year) {
+        int cY;
+        if (year == 2015) {
+            cY = 1;
+        } else if (year == 2016) {
+            cY = 2;
+        } else if (year == 2017) {
+            cY = 3;
+        } else if (year == 2018) {
+            cY = 4;
+        } else if (year == 2019) {
+            cY = 5;
+        } else if (year == 2020) {
+            cY = 6;
+        } else if (year == 2021) {
+            cY = 7;
+        } else if (year == 2022) {
+            cY = 8;
+        } else if (year == 2023) {
+            cY = 9;
+        } else if (year == 2024) {
+            cY = 10;
+        } else if (year == 2025) {
+            cY = 11;
+        } else if (year == 2026) {
+            cY = 12;
+        } else if (year == 2027) {
+            cY = 13;
+        } else {
+            cY = 0;
+        }
+        return cY;
     }
 
     //getTime Day
