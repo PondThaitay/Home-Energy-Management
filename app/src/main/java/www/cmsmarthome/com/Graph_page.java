@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -40,6 +42,7 @@ public class Graph_page extends FragmentActivity {
     private String UserDetailsID;
     private String IP_Address;
 
+    private SwipeRefreshLayout swipeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -283,6 +286,16 @@ public class Graph_page extends FragmentActivity {
             txtUnit.setText("หน่วยไฟฟ้ารวม : 0");
             Toast.makeText(getBaseContext(), "รูปแบบการเลือกไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
         }
+
+        //Bar
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, new Graph.PlaceholderFragmentBarDM())
+                .commit();
+        //Line
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, new Graph.PlaceholderFragmentLineDM())
+                .commit();
+
     }
 
     public void ToDay() {
