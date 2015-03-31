@@ -3,6 +3,7 @@ package www.cmsmarthome.com;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -25,7 +26,6 @@ public class Tab_Mode extends TabActivity {
         SavigMode_Lamp.setIndicator("", getResources().getDrawable(R.drawable.saving_mode_tab));
         Intent SavigMode_page = new Intent(this, Mode_page.class);
         SavigMode_page.putExtra("UserDetailsID", getUserDetails);
-        //tabHost.getTabWidget().getChildAt(0).setBackgroundResource(R.drawable.saving_mode_tab);
         SavigMode_Lamp.setContent(SavigMode_page);
 
         // Tab for Dimmer Mode
@@ -47,7 +47,6 @@ public class Tab_Mode extends TabActivity {
         tabHost.addTab(DimmerMode_Lamp);
         tabHost.addTab(FullMode_Lamp);
 
-        //tabHost.getTabWidget().getChildAt(0).setBackgroundResource(R.drawable.saving_mode_tab);
     }//End onCreate
 
 }//End Class Tab_Mode

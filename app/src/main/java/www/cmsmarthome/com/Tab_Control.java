@@ -24,7 +24,7 @@ public class Tab_Control extends TabActivity {
 
         // Tab for Control Lamp
         TabSpec Control_Lamp = tabHost.newTabSpec("Control Lamp");
-        Control_Lamp.setIndicator("", getResources().getDrawable(R.drawable.contol_lamp_tab));
+        Control_Lamp.setIndicator("");
         Intent ctr_page = new Intent(this, ControlLamp_page.class);
         ctr_page.putExtra("UserDetailsID", getUserDetails);
         ctr_page.putExtra("TimerID", getTimerID);
@@ -32,21 +32,21 @@ public class Tab_Control extends TabActivity {
 
         // Tab for Set Time Control
         TabSpec SetTime_Lamp = tabHost.newTabSpec("Set Time Control");
-        SetTime_Lamp.setIndicator("", getResources().getDrawable(R.drawable.settime_lamp_tab));
+        SetTime_Lamp.setIndicator("");
         Intent setTime_page = new Intent(this, SetTime_page.class);
         setTime_page.putExtra("UserDetailsID", getUserDetails);
         SetTime_Lamp.setContent(setTime_page);
 
         // Tab for Mode Work
         TabSpec Mode_Lamp = tabHost.newTabSpec("Mode");
-        Mode_Lamp.setIndicator("", getResources().getDrawable(R.drawable.mode_lamp_tab));
+        Mode_Lamp.setIndicator("");
         Intent mode_page = new Intent(this, Tab_Mode.class);
         mode_page.putExtra("UserDetailsID", getUserDetails);
         Mode_Lamp.setContent(mode_page);
 
         // Tab for See Time Sum Lamp
         TabSpec sTime_Lamp = tabHost.newTabSpec("Time Sum");
-        sTime_Lamp.setIndicator("", getResources().getDrawable(R.drawable.seetime_lamp_tab));
+        sTime_Lamp.setIndicator("");
         Intent seeTime_page = new Intent(this, SeeTime_page.class);
         seeTime_page.putExtra("UserDetailsID", getUserDetails);
         seeTime_page.putExtra("TimerID", getTimerID);
@@ -54,7 +54,7 @@ public class Tab_Control extends TabActivity {
 
         // Tab for Graph Unit
         TabSpec graph = tabHost.newTabSpec("Graph Unit");
-        graph.setIndicator("", getResources().getDrawable(R.drawable.graph_lamp_tab));
+        graph.setIndicator("");
         Intent graph_page = new Intent(this, Graph_page.class);
         graph_page.putExtra("UserDetailsID", getUserDetails);
         graph_page.putExtra("TimerID", getTimerID);
@@ -62,7 +62,7 @@ public class Tab_Control extends TabActivity {
 
         // Tab for Setting Lamp
         TabSpec SettingLamp = tabHost.newTabSpec("Setting Lamp");
-        SettingLamp.setIndicator("", getResources().getDrawable(R.drawable.setting_lamp_tab));
+        SettingLamp.setIndicator("");
         Intent LampSetting = new Intent(this, Setting_Lamp.class);
         LampSetting.putExtra("UserDetailsID", getUserDetails);
         graph_page.putExtra("TimerID", getTimerID);
@@ -70,7 +70,7 @@ public class Tab_Control extends TabActivity {
 
         // Tab for Update Account
         TabSpec UpdateAccount = tabHost.newTabSpec("Account Setting");
-        UpdateAccount.setIndicator("", getResources().getDrawable(R.drawable.setting_account_tab));
+        UpdateAccount.setIndicator("");
         Intent AccountSetting = new Intent(this, UpdateAccount_page.class);
         AccountSetting.putExtra("UserDetailsID", getUserDetails);
         UpdateAccount.setContent(AccountSetting);
@@ -83,5 +83,15 @@ public class Tab_Control extends TabActivity {
         tabHost.addTab(sTime_Lamp);
         tabHost.addTab(UpdateAccount);
         tabHost.addTab(SettingLamp);
+
+        tabHost.getTabWidget().getChildAt(0).setBackgroundResource(R.drawable.contol_lamp_tab);
+        tabHost.getTabWidget().getChildAt(1).setBackgroundResource(R.drawable.settime_lamp_tab);
+        tabHost.getTabWidget().getChildAt(2).setBackgroundResource(R.drawable.mode_lamp_tab);
+        tabHost.getTabWidget().getChildAt(3).setBackgroundResource(R.drawable.graph_lamp_tab);
+        tabHost.getTabWidget().getChildAt(4).setBackgroundResource(R.drawable.seetime_lamp_tab);
+        tabHost.getTabWidget().getChildAt(5).setBackgroundResource(R.drawable.setting_account_tab);
+        tabHost.getTabWidget().getChildAt(6).setBackgroundResource(R.drawable.setting_lamp_tab);
+
+
     }
 }
