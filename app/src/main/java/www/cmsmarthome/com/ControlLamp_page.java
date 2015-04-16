@@ -2,6 +2,7 @@ package www.cmsmarthome.com;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -10,11 +11,14 @@ import android.os.Handler;
 import android.os.Process;
 import android.os.SystemClock;
 import android.speech.RecognizerIntent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -30,9 +34,12 @@ import InternetDetect.ConnectionDetector;
 
 public class ControlLamp_page extends Activity {
 
+    Context context = this;
+
     User u1 = new User();
     Control_Process p1 = new Control_Process();
     SumTime s1 = new SumTime();
+    Graph g1 = new Graph();
 
     private String IP_Address;
     private String Port;
@@ -303,6 +310,20 @@ public class ControlLamp_page extends Activity {
         btnCloseAll = (Button) findViewById(R.id.btnCloseAll);
 
         CheckStatus();
+
+        lamp1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp1");
+            }
+        });
+
+        lamp2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp2");
+            }
+        });
 
         btnVoice.setOnClickListener(new OnClickListener() {
 
@@ -1226,7 +1247,6 @@ public class ControlLamp_page extends Activity {
     }
     //
 
-
     Calendar c = Calendar.getInstance();
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     String currentDate = df.format(c.getTime());
@@ -1289,4 +1309,75 @@ public class ControlLamp_page extends Activity {
         Process.killProcess(Process.myPid());
         super.onDestroy();
     }*/
+
+    public void DetailsLamps(String checkLamps) {
+
+        final AlertDialog.Builder popDialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
+        final LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        final View Viewlayout = inflater.inflate(R.layout.details_lamps,
+                (ViewGroup) findViewById(R.id.details_lamps));
+
+        final Button btnDel = (Button) Viewlayout.findViewById(R.id.btnDel);
+
+        final EditText etWatts = (EditText) Viewlayout.findViewById(R.id.etWatts);
+
+        final EditText etSumTime = (EditText) Viewlayout.findViewById(R.id.etTimes);
+
+        final TextView tvSumtime = (TextView) Viewlayout.findViewById(R.id.tvSumtime);
+
+        popDialog.setIcon(R.drawable.settings_icon);
+        popDialog.setTitle("ตั้งค่าหลอดไฟ");
+        popDialog.setView(Viewlayout);
+
+        //get MaxTime
+        s1.getMaxTime(IP_Address);
+        //get Watts
+        g1.getWatt(IP_Address);
+        //get Sumtimes
+        s1.getDataTimer(TimerID, IP_Address);
+
+        if (checkLamps.equals("lamp1")) {
+            etSumTime.setText(s1.mBedroom1);
+            etWatts.setText(g1.wBedroom1);
+            tvSumtime.setText("เวลารวม : " + s1.strBedroom1);
+        } else if (checkLamps.equals("lamp2")) {
+            etSumTime.setText(s1.mBedroom2);
+            etWatts.setText(g1.wBedroom2);
+            tvSumtime.setText("เวลารวม : " + s1.strBedroom2);
+        }
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Jedsada", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Button OK
+        popDialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+                // txtUsername and Password (Dialog)
+                EditText watts = (EditText) Viewlayout.findViewById(R.id.etWatts);
+                EditText times = (EditText) Viewlayout.findViewById(R.id.etTimes);
+
+                Toast.makeText(context, watts.getText().toString() + "\n" +
+                        times.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        })
+                // Button Cancel
+                .setNegativeButton("ยกเลิก",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        popDialog.create();
+        popDialog.show();
+    }
+
 }//End Class ControlLamp_page

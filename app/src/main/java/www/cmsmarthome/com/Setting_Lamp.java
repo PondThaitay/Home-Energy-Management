@@ -163,7 +163,7 @@ public class Setting_Lamp extends Activity {
                 final EditText wParkRoom2 = (EditText) Viewlayout.findViewById(R.id.etWattFon2);
                 final EditText wFontDoor = (EditText) Viewlayout.findViewById(R.id.etWattPar);
 
-                //get MaxTime
+                //get Watts
                 g1.getWatt(IP_Address);
                 wBedRoom1.setText(g1.wBedroom1);
                 wBedRoom2.setText(g1.wBedroom2);
@@ -265,6 +265,7 @@ public class Setting_Lamp extends Activity {
                 final Button btnPr2 = (Button) ViewlayoutReset.findViewById(R.id.btnReset14);
                 final Button btnFd1 = (Button) ViewlayoutReset.findViewById(R.id.btnReset15);
 
+                //get Sumtimes
                 s1.getDataTimer(TimerID, IP_Address);
                 reBr1.setText(s1.strBedroom1);
                 reBr2.setText(s1.strBedroom2);
