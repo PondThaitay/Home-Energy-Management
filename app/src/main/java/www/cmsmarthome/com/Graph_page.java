@@ -1,11 +1,11 @@
 package www.cmsmarthome.com;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Bundle;
-import android.os.Handler;
+import android.os.*;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
@@ -22,6 +22,7 @@ public class Graph_page extends FragmentActivity {
 
     User u1 = new User();
     Graph g1 = new Graph();
+    ControlLamp_page c1 = new ControlLamp_page();
 
     private Button btnBar;
     private Button btnLine;
@@ -329,21 +330,33 @@ public class Graph_page extends FragmentActivity {
 
     //BackPressed
     public void onBackPressed() {
-        final AlertDialog.Builder da1 = new AlertDialog.Builder(this.getParent(), AlertDialog.THEME_HOLO_DARK);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
+        dialog.setTitle("ออกจากระบบ");
+        dialog.setIcon(R.drawable.ic_launcher);
+        dialog.setCancelable(true);
+        dialog.setMessage("คุณต้องการออกจากระบบหรือไม่ ?");
+        dialog.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                c1.SaveBeforeForeApp();
+                finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        });
 
-        TextView msg = new TextView(this);
-        msg.setText("หากต้องการออกจาก App โดยสมบูรณ์กรุณากลับไปหน้าแรกก่อน");
-        msg.setGravity(Gravity.CENTER_HORIZONTAL);
-        msg.setTextSize(18);
-        msg.setTextColor(Color.WHITE);
+        dialog.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
 
-        da1.setTitle("เกิดข้อผิดผลาด");
-        da1.setIcon(R.drawable.ic_launcher);
-        da1.setView(msg);
-        da1.setPositiveButton("ปิด", null);
-        da1.show();
+        dialog.show();
     }
     //End BackPressed
+
+    public void onStop() {
+        super.onStop();
+        c1.SaveBeforeForeApp();
+    }
 
 }//End Class Graph_page
 

@@ -39,7 +39,7 @@ public class User {
     protected String strPassword = "";
     protected String strIP = "";
     protected String strPort = "";
-//
+    //
 
     //Login
     public void checkLogin(String username, String password) {
@@ -92,7 +92,7 @@ public class User {
     public String getTimer_BackupID() {
         return Timer_BackupID;
     }
-//end Login
+    //end Login
 
     //Insert
     public void Insert(String Inuername, String Inpassword, String Inip, String Inport) {
@@ -132,7 +132,7 @@ public class User {
     public String getInsert() {
         return StatusINsert;
     }
-//end Insert
+    //end Insert
 
     //get Data
     public void getData(String UserDetailsID) {
@@ -168,7 +168,7 @@ public class User {
     public String getStatusGetData() {
         return StatusGetData;
     }
-//
+    //End getData
 
     //Update
     public void SaveData(String id, String u, String p, String ip, String port, String Ouser, String Oip) {
@@ -210,8 +210,9 @@ public class User {
     public String getStatusUpdate() {
         return StatusUpdate;
     }
-
     //end Update
+
+    //Delete User
     public void DeleteData(String id, String u, String p, String ip, String port, String Ouser, String Oip) {
         String url = "http://www.cm-smarthome.com/android/deleteData.php";
 
@@ -251,9 +252,7 @@ public class User {
     public String getStatusDelete() {
         return StatusDelete;
     }
-//Delete User
-
-//End Delet User
+    //End Delete User
 
     public String getHttpPost(String url, List<NameValuePair> params) {
         StringBuilder str = new StringBuilder();
@@ -287,5 +286,4 @@ public class User {
         }
         return str.toString();
     }
-
 }//End Class User

@@ -5,17 +5,20 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Process;
 import android.os.SystemClock;
 import android.speech.RecognizerIntent;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
@@ -38,14 +41,14 @@ public class ControlLamp_page extends Activity {
 
     User u1 = new User();
     Control_Process p1 = new Control_Process();
-    SumTime s1 = new SumTime();
+    static SumTime s1 = new SumTime();
     Graph g1 = new Graph();
 
-    private String IP_Address;
+    private static String IP_Address;
     private String Port;
-    private String Username;
+    private static String Username;
     private String UserDetailsID;
-    private String TimerID;
+    private static String TimerID;
 
     //voice command
     private Button btnVoice;
@@ -134,21 +137,21 @@ public class ControlLamp_page extends Activity {
     ConnectionDetector cd;
 
     //wiget for CountTime
-    private TextView textTimer1 = null;
-    private TextView textTimer2 = null;
-    private TextView textTimer3 = null;
-    private TextView textTimer4 = null;
-    private TextView textTimer5 = null;
-    private TextView textTimer6 = null;
-    private TextView textTimer7 = null;
-    private TextView textTimer8 = null;
-    private TextView textTimer9 = null;
-    private TextView textTimer10 = null;
-    private TextView textTimer11 = null;
-    private TextView textTimer12 = null;
-    private TextView textTimer13 = null;
-    private TextView textTimer14 = null;
-    private TextView textTimer15 = null;
+    private static TextView textTimer1 = null;
+    private static TextView textTimer2 = null;
+    private static TextView textTimer3 = null;
+    private static TextView textTimer4 = null;
+    private static TextView textTimer5 = null;
+    private static TextView textTimer6 = null;
+    private static TextView textTimer7 = null;
+    private static TextView textTimer8 = null;
+    private static TextView textTimer9 = null;
+    private static TextView textTimer10 = null;
+    private static TextView textTimer11 = null;
+    private static TextView textTimer12 = null;
+    private static TextView textTimer13 = null;
+    private static TextView textTimer14 = null;
+    private static TextView textTimer15 = null;
     //
 
     //count time
@@ -237,6 +240,11 @@ public class ControlLamp_page extends Activity {
 
     private Button btnCloseAll;
 
+    private String BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1,
+            Co2, Pr1, Pr2, Fd;
+    private String wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1, wOr2,
+            wCo1, wCo2, wPr1, wPr2, wFd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -322,6 +330,97 @@ public class ControlLamp_page extends Activity {
             @Override
             public void onClick(View v) {
                 DetailsLamps("lamp2");
+            }
+        });
+
+        lamp3.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp3");
+            }
+        });
+
+        lamp4.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp4");
+            }
+        });
+
+        lamp5.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp5");
+            }
+        });
+
+        lamp6.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp6");
+            }
+        });
+
+        lamp7.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp7");
+            }
+        });
+
+        lamp8.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp8");
+            }
+        });
+
+        lamp9.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp9");
+            }
+        });
+
+        lamp10.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp10");
+            }
+        });
+
+        lamp11.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp11");
+            }
+        });
+
+        lamp12.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp12");
+            }
+        });
+
+        lamp13.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp13");
+            }
+        });
+
+        lamp14.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp14");
+            }
+        });
+
+        lamp15.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailsLamps("lamp15");
             }
         });
 
@@ -1247,9 +1346,9 @@ public class ControlLamp_page extends Activity {
     }
     //
 
-    Calendar c = Calendar.getInstance();
-    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-    String currentDate = df.format(c.getTime());
+    static Calendar c = Calendar.getInstance();
+    static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    static String currentDate = df.format(c.getTime());
 
     public void updateTimer() {
         cTime = new Timer();
@@ -1259,10 +1358,12 @@ public class ControlLamp_page extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        s1.UpdateData(textTimer1.getText().toString(), textTimer2.getText().toString(), textTimer3.getText().toString(), textTimer4.getText().toString()
-                                , textTimer5.getText().toString(), textTimer6.getText().toString(), textTimer7.getText().toString(), textTimer8.getText().toString()
-                                , textTimer9.getText().toString(), textTimer10.getText().toString(), textTimer11.getText().toString(), textTimer12.getText().toString()
-                                , textTimer13.getText().toString(), textTimer14.getText().toString(), textTimer15.getText().toString(), currentDate, TimerID);
+                        s1.UpdateData(textTimer1.getText().toString(), textTimer2.getText().toString(), textTimer3.getText().toString()
+                                , textTimer4.getText().toString(), textTimer5.getText().toString(), textTimer6.getText().toString()
+                                , textTimer7.getText().toString(), textTimer8.getText().toString(), textTimer9.getText().toString()
+                                , textTimer10.getText().toString(), textTimer11.getText().toString(), textTimer12.getText().toString()
+                                , textTimer13.getText().toString(), textTimer14.getText().toString(), textTimer15.getText().toString()
+                                , currentDate, TimerID);
                     }
                 });
             }
@@ -1271,6 +1372,714 @@ public class ControlLamp_page extends Activity {
 
     //BackPressed
     public void onBackPressed() {
+        SaveBeforeExitApp();
+    }
+    //End BackPressed
+
+    public void DetailsLamps(final String checkLamps) {
+
+        final AlertDialog.Builder popDialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
+        final LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        final View Viewlayout = inflater.inflate(R.layout.details_lamps,
+                (ViewGroup) findViewById(R.id.details_lamps));
+
+        final Button btnDel = (Button) Viewlayout.findViewById(R.id.btnDel);
+
+        final EditText etWatts = (EditText) Viewlayout.findViewById(R.id.etWatts);
+        final EditText etSumTime = (EditText) Viewlayout.findViewById(R.id.etTimes);
+
+        final TextView tvSumtime = (TextView) Viewlayout.findViewById(R.id.tvSumtime);
+
+        popDialog.setIcon(R.drawable.settings_icon);
+        popDialog.setTitle("ตั้งค่าหลอดไฟ");
+        popDialog.setView(Viewlayout);
+
+        //get MaxTime
+        s1.getMaxTime(IP_Address);
+        BedR1 = s1.mBedroom1;
+        BedR2 = s1.mBedroom2;
+        ToiR = s1.mToiletroom1;
+        Sal1 = s1.mSaloonroom1;
+        Sal2 = s1.mSaloonroom2;
+        Sal3 = s1.mSaloonroom3;
+        Sal4 = s1.mSaloonroom4;
+        Sal5 = s1.mSaloonroom5;
+        Or1 = s1.mOfficeroom1;
+        Or2 = s1.mOfficeroom2;
+        Co1 = s1.mCookroom1;
+        Co2 = s1.mCookroom2;
+        Pr1 = s1.mParkroom1;
+        Pr2 = s1.mParkroom2;
+        Fd = s1.mFontDoor1;
+        //get Watts
+        g1.getWatt(IP_Address);
+        wBedR1 = g1.wBedroom1;
+        wBedR2 = g1.wBedroom2;
+        wToiR = g1.wToiletroom1;
+        wSal1 = g1.wSaloonroom1;
+        wSal2 = g1.wSaloonroom2;
+        wSal3 = g1.wSaloonroom3;
+        wSal4 = g1.wSaloonroom4;
+        wSal5 = g1.wSaloonroom5;
+        wOr1 = g1.wOfficeroom1;
+        wOr2 = g1.wOfficeroom2;
+        wCo1 = g1.wCookroom1;
+        wCo2 = g1.wCookroom2;
+        wPr1 = g1.wParkroom1;
+        wPr2 = g1.wParkroom2;
+        wFd = g1.wFontDoor1;
+        //get Sumtimes
+        s1.getDataTimer(TimerID, IP_Address);
+
+        if (checkLamps.equals("lamp1")) {
+            etSumTime.setText(s1.mBedroom1);
+            etWatts.setText(g1.wBedroom1);
+            tvSumtime.setText("เวลารวม : " + s1.strBedroom1);
+        } else if (checkLamps.equals("lamp2")) {
+            etSumTime.setText(s1.mBedroom2);
+            etWatts.setText(g1.wBedroom2);
+            tvSumtime.setText("เวลารวม : " + s1.strBedroom2);
+        } else if (checkLamps.equals("lamp3")) {
+            etSumTime.setText(s1.mToiletroom1);
+            etWatts.setText(g1.wToiletroom1);
+            tvSumtime.setText("เวลารวม : " + s1.strToiletroom1);
+        } else if (checkLamps.equals("lamp4")) {
+            etSumTime.setText(s1.mSaloonroom1);
+            etWatts.setText(g1.wSaloonroom1);
+            tvSumtime.setText("เวลารวม : " + s1.strSaloonroom1);
+        } else if (checkLamps.equals("lamp5")) {
+            etSumTime.setText(s1.mSaloonroom2);
+            etWatts.setText(g1.wSaloonroom2);
+            tvSumtime.setText("เวลารวม : " + s1.strSaloonroom2);
+        } else if (checkLamps.equals("lamp6")) {
+            etSumTime.setText(s1.mSaloonroom3);
+            etWatts.setText(g1.wSaloonroom3);
+            tvSumtime.setText("เวลารวม : " + s1.strSaloonroom3);
+        } else if (checkLamps.equals("lamp7")) {
+            etSumTime.setText(s1.mSaloonroom4);
+            etWatts.setText(g1.wSaloonroom4);
+            tvSumtime.setText("เวลารวม : " + s1.strSaloonroom4);
+        } else if (checkLamps.equals("lamp8")) {
+            etSumTime.setText(s1.mSaloonroom5);
+            etWatts.setText(g1.wSaloonroom5);
+            tvSumtime.setText("เวลารวม : " + s1.strSaloonroom5);
+        } else if (checkLamps.equals("lamp9")) {
+            etSumTime.setText(s1.mOfficeroom1);
+            etWatts.setText(g1.wOfficeroom1);
+            tvSumtime.setText("เวลารวม : " + s1.strOfficeroom1);
+        } else if (checkLamps.equals("lamp10")) {
+            etSumTime.setText(s1.mOfficeroom2);
+            etWatts.setText(g1.wOfficeroom2);
+            tvSumtime.setText("เวลารวม : " + s1.strOfficeroom2);
+        } else if (checkLamps.equals("lamp11")) {
+            etSumTime.setText(s1.mCookroom1);
+            etWatts.setText(g1.wCookroom1);
+            tvSumtime.setText("เวลารวม : " + s1.strCookroom1);
+        } else if (checkLamps.equals("lamp12")) {
+            etSumTime.setText(s1.mCookroom2);
+            etWatts.setText(g1.wCookroom2);
+            tvSumtime.setText("เวลารวม : " + s1.strCookroom2);
+        } else if (checkLamps.equals("lamp13")) {
+            etSumTime.setText(s1.mParkroom1);
+            etWatts.setText(g1.wParkroom1);
+            tvSumtime.setText("เวลารวม : " + s1.strParkroom1);
+        } else if (checkLamps.equals("lamp14")) {
+            etSumTime.setText(s1.mParkroom2);
+            etWatts.setText(g1.wParkroom2);
+            tvSumtime.setText("เวลารวม : " + s1.strParkroom2);
+        } else if (checkLamps.equals("lamp15")) {
+            etSumTime.setText(s1.mFontDoor1);
+            etWatts.setText(g1.wFontDoor1);
+            tvSumtime.setText("เวลารวม : " + s1.strFontDoor1);
+        }
+
+        final AlertDialog.Builder DialogConfirm = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
+        DialogConfirm.setIcon(R.drawable.zero_time);
+        DialogConfirm.setTitle("ล้างเวลาของหลอดไฟ");
+        DialogConfirm.setMessage("คุณต้องลบล้างข้องมูลเวลา จริงหรือ?");
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkLamps.equals("lamp1")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "BedRoom1");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(getBaseContext(), "ล้างเวลา ห้องนอน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp2")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "BedRoom2");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp3")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "ToiletRoom1");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp4")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "SaloonRoom1");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp5")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "SaloonRoom2");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp6")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "SaloonRoom3");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+
+                } else if (checkLamps.equals("lamp7")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "SaloonRoom4");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+
+                } else if (checkLamps.equals("lamp8")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "SaloonRoom5");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+
+                } else if (checkLamps.equals("lamp9")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "OfficeRoom1");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+
+                } else if (checkLamps.equals("lamp10")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "OfficeRoom2");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp11")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "CookRoom1");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp12")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "CookRoom2");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp13")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "ParkRoom1");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp14")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "ParkRoom2");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                } else if (checkLamps.equals("lamp15")) {
+                    // Ok
+                    DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            s1.ResetData(IP_Address, "FontDoor1");
+                            tvSumtime.setText("เวลารวม : 00:00:00");
+                            Toast.makeText(context, "ล้างข้อมูลเวลารวมสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    // Cancel
+                    DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    });
+                    DialogConfirm.show();
+                }
+            }
+        });
+
+        // Button OK
+        popDialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+                // txtUsername and Password (Dialog)
+                EditText watts = (EditText) Viewlayout.findViewById(R.id.etWatts);
+                EditText times = (EditText) Viewlayout.findViewById(R.id.etTimes);
+                CheckBox cbAll = (CheckBox) Viewlayout.findViewById(R.id.cbAll);
+
+                String etW = watts.getText().toString();
+                String etT = times.getText().toString();
+
+                if (checkLamps.equals("lamp1")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูล จำนวน Watts ของ หลอดไฟห้องนอน หลอดที่ 1 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูล เวลาสูงสุด ของ หลอดไฟห้องนอน หลอดที่ 1 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(etT, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(etW, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp2")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูล จำนวน Watts ของ หลอดไฟห้องนอน หลอดที่ 2 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูล เวลาสูงสุด ของ หลอดไฟห้องนอน หลอดที่ 2 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, etT, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, etW, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp3")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องน้ำ ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องน้ำ ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, etT, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, etW, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp4")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 1 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 1 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, etT, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(BedR1, BedR2, wToiR, etW, wSal2, wSal3, wSal4, wSal5, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp5")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 2 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 2 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, etT, Sal3, Sal4, Sal5, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, etW, wSal3, wSal4, wSal5, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp6")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 3 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 3 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, etT, Sal4, Sal5, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, etW, wSal4, wSal5, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp7")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 4 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 4 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, etT, Sal5, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, etW, wSal5, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp8")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 5 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 5 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, etT, Or1, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, etW, wOr1, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp9")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 1 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 1 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, etT, Or2, Co1
+                                , Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, etW, wOr2
+                                , wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp10")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 2 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 2 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, etT
+                                , Co1, Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1
+                                , etW, wCo1, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp11")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 1 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 1 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2
+                                , etT, Co2, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1
+                                , wOr2, etW, wCo2, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp12")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 2 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 2 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2
+                                , Co1, etT, Pr1, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1
+                                , wOr2, wCo1, etW, wPr1, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp13")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 1 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 1 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2
+                                , Co1, Co2, etT, Pr2, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1
+                                , wOr2, wCo1, wCo2, etW, wPr2, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp14")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 2 ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 2 ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2
+                                , Co1, Co2, Pr1, etT, Fd, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1
+                                , wOr2, wCo1, wCo2, wPr1, etW, wFd, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (checkLamps.equals("lamp15")) {
+                    if (etW.startsWith("0") || etW.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟที่จอดรถ ใหม่");
+                    } else if (etT.startsWith("0") || etT.equals("")) {
+                        CheckInput("กรุณากรอกข้อมูลของ หลอดไฟที่จอดรถ ใหม่");
+                    } else if (cbAll.isChecked()) {
+                        s1.setMaxTime(etT, etT, etT, etT, etT, etT, etT, etT, etT, etT
+                                , etT, etT, etT, etT, etT, IP_Address);
+                        g1.setWatt(etW, etW, etW, etW, etW, etW, etW, etW, etW
+                                , etW, etW, etW, etW, etW, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    } else {
+                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2
+                                , Co1, Co2, Pr1, Pr2, etT, IP_Address);
+                        g1.setWatt(wBedR1, wBedR2, wToiR, wSal1, wSal2, wSal3, wSal4, wSal5, wOr1
+                                , wOr2, wCo1, wCo2, wPr1, wPr2, etW, IP_Address);
+                        dialog.dismiss();
+                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        })
+                // Button Cancel
+                .setNegativeButton("ยกเลิก",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        popDialog.create();
+        popDialog.show();
+    }
+
+    public void CheckInput(String input) {
+        final AlertDialog.Builder da1 = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
+        TextView msg = new TextView(this);
+        msg.setText(input);
+        msg.setGravity(Gravity.CENTER_HORIZONTAL);
+        msg.setTextSize(18);
+        msg.setTextColor(Color.WHITE);
+
+        da1.setTitle("เกิดข้อผิดผลาด");
+        da1.setIcon(R.drawable.ic_launcher);
+        da1.setView(msg);
+        da1.setPositiveButton("ปิด", null);
+        da1.show();
+    }
+
+    public void SaveBeforeExitApp() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
         dialog.setTitle("ออกจากระบบ");
         dialog.setIcon(R.drawable.ic_launcher);
@@ -1280,10 +2089,12 @@ public class ControlLamp_page extends Activity {
             public void onClick(DialogInterface dialog, int which) {
 
                 //Save Time Last Before Exit App
-                s1.BackupTime(Username, IP_Address, textTimer1.getText().toString(), textTimer2.getText().toString(), textTimer3.getText().toString(), textTimer4.getText().toString()
-                        , textTimer5.getText().toString(), textTimer6.getText().toString(), textTimer7.getText().toString(), textTimer8.getText().toString()
-                        , textTimer9.getText().toString(), textTimer10.getText().toString(), textTimer11.getText().toString(), textTimer12.getText().toString()
-                        , textTimer13.getText().toString(), textTimer14.getText().toString(), textTimer15.getText().toString(), currentDate);
+                s1.BackupTime(Username, IP_Address, textTimer1.getText().toString(), textTimer2.getText().toString()
+                        , textTimer3.getText().toString(), textTimer4.getText().toString(), textTimer5.getText().toString()
+                        , textTimer6.getText().toString(), textTimer7.getText().toString(), textTimer8.getText().toString()
+                        , textTimer9.getText().toString(), textTimer10.getText().toString(), textTimer11.getText().toString()
+                        , textTimer12.getText().toString(), textTimer13.getText().toString(), textTimer14.getText().toString()
+                        , textTimer15.getText().toString(), currentDate);
 
                 //Update DB Timer Before Exit App
                 s1.UpdateData("00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00"
@@ -1302,82 +2113,25 @@ public class ControlLamp_page extends Activity {
 
         dialog.show();
     }
-    //End BackPressed
 
-   /* protected void onDestroy()
-    {
+    public static void SaveBeforeForeApp() {
+        //Save Time Last Before Exit App
+        s1.BackupTime(Username, IP_Address, textTimer1.getText().toString(), textTimer2.getText().toString()
+                , textTimer3.getText().toString(), textTimer4.getText().toString(), textTimer5.getText().toString()
+                , textTimer6.getText().toString(), textTimer7.getText().toString(), textTimer8.getText().toString()
+                , textTimer9.getText().toString(), textTimer10.getText().toString(), textTimer11.getText().toString()
+                , textTimer12.getText().toString(), textTimer13.getText().toString(), textTimer14.getText().toString()
+                , textTimer15.getText().toString(), currentDate);
+
+        //Update DB Timer Before Exit App
+        s1.UpdateData("00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00"
+                , "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", "00:00:00", currentDate, TimerID);
+
         Process.killProcess(Process.myPid());
-        super.onDestroy();
-    }*/
-
-    public void DetailsLamps(String checkLamps) {
-
-        final AlertDialog.Builder popDialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
-        final LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-
-        final View Viewlayout = inflater.inflate(R.layout.details_lamps,
-                (ViewGroup) findViewById(R.id.details_lamps));
-
-        final Button btnDel = (Button) Viewlayout.findViewById(R.id.btnDel);
-
-        final EditText etWatts = (EditText) Viewlayout.findViewById(R.id.etWatts);
-
-        final EditText etSumTime = (EditText) Viewlayout.findViewById(R.id.etTimes);
-
-        final TextView tvSumtime = (TextView) Viewlayout.findViewById(R.id.tvSumtime);
-
-        popDialog.setIcon(R.drawable.settings_icon);
-        popDialog.setTitle("ตั้งค่าหลอดไฟ");
-        popDialog.setView(Viewlayout);
-
-        //get MaxTime
-        s1.getMaxTime(IP_Address);
-        //get Watts
-        g1.getWatt(IP_Address);
-        //get Sumtimes
-        s1.getDataTimer(TimerID, IP_Address);
-
-        if (checkLamps.equals("lamp1")) {
-            etSumTime.setText(s1.mBedroom1);
-            etWatts.setText(g1.wBedroom1);
-            tvSumtime.setText("เวลารวม : " + s1.strBedroom1);
-        } else if (checkLamps.equals("lamp2")) {
-            etSumTime.setText(s1.mBedroom2);
-            etWatts.setText(g1.wBedroom2);
-            tvSumtime.setText("เวลารวม : " + s1.strBedroom2);
-        }
-
-        btnDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Jedsada", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Button OK
-        popDialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-
-                // txtUsername and Password (Dialog)
-                EditText watts = (EditText) Viewlayout.findViewById(R.id.etWatts);
-                EditText times = (EditText) Viewlayout.findViewById(R.id.etTimes);
-
-                Toast.makeText(context, watts.getText().toString() + "\n" +
-                        times.getText().toString(), Toast.LENGTH_SHORT).show();
-            }
-        })
-                // Button Cancel
-                .setNegativeButton("ยกเลิก",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-
-        popDialog.create();
-        popDialog.show();
     }
 
+    public void onStop() {
+        super.onStop();
+        SaveBeforeForeApp();
+    }
 }//End Class ControlLamp_page

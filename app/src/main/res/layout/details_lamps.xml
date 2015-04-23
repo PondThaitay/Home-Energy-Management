@@ -3,7 +3,9 @@
     android:id="@+id/details_lamps"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:gravity="center_horizontal">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,11 +26,11 @@
             android:layout_weight="1"
             android:text="จำนวนวัตต์หลอดไฟ : "
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/etWatts"
-            android:layout_width="140dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView"
             android:layout_alignBottom="@+id/textView"
@@ -59,11 +61,11 @@
             android:layout_weight="1"
             android:text="อายุการใช้งานสูงสุด : "
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/etTimes"
-            android:layout_width="140dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView2"
             android:layout_alignBottom="@+id/textView2"
@@ -74,6 +76,13 @@
             android:inputType="number"
             android:hint="อายุการใช้งาน" />
     </LinearLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ตั้งค่าแบบนี้ทุกหลอด"
+        android:id="@+id/cbAll"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -89,14 +98,13 @@
             android:layout_height="wrap_content"
             android:text="เวลารวม : 1000:00:00"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="20dp" />
+            android:textSize="19dp" />
 
         <Button
             android:id="@+id/btnDel"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/zero_time"
+            android:background="@drawable/ic_action_trash"
             android:gravity="center" />
     </LinearLayout>
 

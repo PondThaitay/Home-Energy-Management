@@ -36,7 +36,7 @@ public class Tab_Mode extends TabActivity {
         DimmerMode_Lamp.setContent(DimmerMode_page);
 
         // Tab for Full Mode
-        TabSpec FullMode_Lamp = tabHost.newTabSpec("Saving Mode");
+        TabSpec FullMode_Lamp = tabHost.newTabSpec("Full Mode");
         FullMode_Lamp.setIndicator("", getResources().getDrawable(R.drawable.full_mode_tab));
         Intent FullMode_page = new Intent(this, FullMode_page.class);
         FullMode_page.putExtra("UserDetailsID", getUserDetails);
@@ -46,7 +46,5 @@ public class Tab_Mode extends TabActivity {
         tabHost.addTab(SavigMode_Lamp);
         tabHost.addTab(DimmerMode_Lamp);
         tabHost.addTab(FullMode_Lamp);
-
     }//End onCreate
-
 }//End Class Tab_Mode

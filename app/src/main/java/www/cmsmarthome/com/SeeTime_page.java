@@ -3,10 +3,10 @@ package www.cmsmarthome.com;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
+import android.os.*;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Gravity;
 import android.widget.Button;
@@ -21,6 +21,7 @@ import java.util.TimerTask;
 public class SeeTime_page extends Activity {
 
     User u1 = new User();
+    ControlLamp_page c2 = new ControlLamp_page();
     SumTime s1 = new SumTime();
 
     private Timer cTime;
@@ -294,20 +295,33 @@ public class SeeTime_page extends Activity {
 
     //BackPressed
     public void onBackPressed() {
-        final AlertDialog.Builder da1 = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
-        TextView msg = new TextView(this);
-        msg.setText("หากต้องการออกจาก App โดยสมบูรณ์กรุณากลับไปหน้าแรกก่อน");
-        msg.setGravity(Gravity.CENTER_HORIZONTAL);
-        msg.setTextSize(18);
-        msg.setTextColor(Color.WHITE);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
+        dialog.setTitle("ออกจากระบบ");
+        dialog.setIcon(R.drawable.ic_launcher);
+        dialog.setCancelable(true);
+        dialog.setMessage("คุณต้องการออกจากระบบหรือไม่ ?");
+        dialog.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                c2.SaveBeforeForeApp();
+                finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        });
 
-        da1.setTitle("เกิดข้อผิดผลาด");
-        da1.setIcon(R.drawable.ic_launcher);
-        da1.setView(msg);
-        da1.setPositiveButton("ปิด", null);
-        da1.show();
+        dialog.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        dialog.show();
     }
     //End BackPressed
+
+    public void onStop() {
+        super.onStop();
+        c2.SaveBeforeForeApp();
+    }
 
 }//End Class SeeTime_page
 

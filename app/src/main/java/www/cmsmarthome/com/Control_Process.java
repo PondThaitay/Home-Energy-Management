@@ -149,5 +149,4 @@ public class Control_Process {
     public String getStatusLamp15() {
         return StatusLamp15;
     }
-
 }//End Class Control_Process

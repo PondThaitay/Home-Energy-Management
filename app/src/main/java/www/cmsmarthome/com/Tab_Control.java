@@ -91,7 +91,5 @@ public class Tab_Control extends TabActivity {
         tabHost.getTabWidget().getChildAt(4).setBackgroundResource(R.drawable.seetime_lamp_tab);
         tabHost.getTabWidget().getChildAt(5).setBackgroundResource(R.drawable.setting_account_tab);
         tabHost.getTabWidget().getChildAt(6).setBackgroundResource(R.drawable.setting_lamp_tab);
-
-
-    }
-}
+    }// End onCreate
+}// End Class Tab_Control

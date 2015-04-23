@@ -5,7 +5,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
+import android.os.*;
+import android.os.Process;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ public class Setting_Lamp extends Activity {
     User u1 = new User();
     SumTime s1 = new SumTime();
     Graph g1 = new Graph();
+    ControlLamp_page c1 = new ControlLamp_page();
 
     private String TimerID;
     private String UserDetailsID;
@@ -48,6 +50,7 @@ public class Setting_Lamp extends Activity {
         btnClearTime = (Button) findViewById(R.id.btn_clear);
 
         final AlertDialog.Builder Dialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
+        final AlertDialog.Builder DialogConfirm = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
         final AlertDialog.Builder DialogResetTime = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
         final LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
 
@@ -100,11 +103,8 @@ public class Setting_Lamp extends Activity {
                 Dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        //close Dialog
-                        dialog.dismiss();
 
                         String BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd;
-
                         BedR1 = mBedRoom1.getText().toString();
                         BedR2 = mBedRoom2.getText().toString();
                         ToiR = mToilet.getText().toString();
@@ -121,9 +121,41 @@ public class Setting_Lamp extends Activity {
                         Pr2 = mParkRoom2.getText().toString();
                         Fd = mFontDoor.getText().toString();
 
-                        s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd, IP_Address);
-                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
-
+                        if (BedR1.startsWith("0") || BedR1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนอน หลอดที่ 1 ใหม่");
+                        } else if (BedR2.startsWith("0") || BedR2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนอน หลอดที่ 2 ใหม่");
+                        } else if (ToiR.startsWith("0") || ToiR.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องน้ำ ใหม่");
+                        } else if (Sal1.startsWith("0") || Sal1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 1 ใหม่");
+                        } else if (Sal2.startsWith("0") || Sal2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 2 ใหม่");
+                        } else if (Sal3.startsWith("0") || Sal3.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 3 ใหม่");
+                        } else if (Sal4.startsWith("0") || Sal4.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 4 ใหม่");
+                        } else if (Sal5.startsWith("0") || Sal5.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 5 ใหม่");
+                        } else if (Or1.startsWith("0") || Or1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 1 ใหม่");
+                        } else if (Or2.startsWith("0") || Or2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 2 ใหม่");
+                        } else if (Co1.startsWith("0") || Co1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 1 ใหม่");
+                        } else if (Co2.startsWith("0") || Co2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 2 ใหม่");
+                        } else if (Pr1.startsWith("0") || Pr1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 1 ใหม่");
+                        } else if (Pr2.startsWith("0") || Pr2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 2 ใหม่");
+                        } else if (Fd.startsWith("0") || Fd.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟที่จอดรถ ใหม่");
+                        } else {
+                            s1.setMaxTime(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd, IP_Address);
+                            dialog.dismiss();
+                            Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                         // Button Cancel
@@ -186,8 +218,6 @@ public class Setting_Lamp extends Activity {
                 Dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        //close Dialog
-                        dialog.dismiss();
 
                         String BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd;
 
@@ -207,9 +237,41 @@ public class Setting_Lamp extends Activity {
                         Pr2 = wParkRoom2.getText().toString();
                         Fd = wFontDoor.getText().toString();
 
-                        g1.setWatt(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd, IP_Address);
-                        Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
-
+                        if (BedR1.startsWith("0") || BedR1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนอน หลอดที่ 1 ใหม่");
+                        } else if (BedR2.startsWith("0") || BedR2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนอน หลอดที่ 2 ใหม่");
+                        } else if (ToiR.startsWith("0") || ToiR.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องน้ำ ใหม่");
+                        } else if (Sal1.startsWith("0") || Sal1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 1 ใหม่");
+                        } else if (Sal2.startsWith("0") || Sal2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 2 ใหม่");
+                        } else if (Sal3.startsWith("0") || Sal3.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 3 ใหม่");
+                        } else if (Sal4.startsWith("0") || Sal4.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 4 ใหม่");
+                        } else if (Sal5.startsWith("0") || Sal5.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องนั่งเล่น หลอดที่ 5 ใหม่");
+                        } else if (Or1.startsWith("0") || Or1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 1 ใหม่");
+                        } else if (Or2.startsWith("0") || Or2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องทำงาน หลอดที่ 2 ใหม่");
+                        } else if (Co1.startsWith("0") || Co1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 1 ใหม่");
+                        } else if (Co2.startsWith("0") || Co2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟห้องครัว หลอดที่ 2 ใหม่");
+                        } else if (Pr1.startsWith("0") || Pr1.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 1 ใหม่");
+                        } else if (Pr2.startsWith("0") || Pr2.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟหน้าบ้าน หลอดที่ 2 ใหม่");
+                        } else if (Fd.startsWith("0") || Fd.equals("")) {
+                            CheckInput("กรุณากรอกข้อมูลของ หลอดไฟที่จอดรถ ใหม่");
+                        } else {
+                            g1.setWatt(BedR1, BedR2, ToiR, Sal1, Sal2, Sal3, Sal4, Sal5, Or1, Or2, Co1, Co2, Pr1, Pr2, Fd, IP_Address);
+                            dialog.dismiss();
+                            Toast.makeText(getBaseContext(), "ทำการบันทึกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                         // Button Cancel
@@ -283,124 +345,338 @@ public class Setting_Lamp extends Activity {
                 rePr2.setText(s1.strParkroom2);
                 reFd1.setText(s1.strFontDoor1);
 
+                DialogConfirm.setIcon(R.drawable.zero_time);
+                DialogConfirm.setTitle("ล้างเวลาของหลอดไฟ");
+                DialogConfirm.setMessage("คุณต้องลบล้างข้องมูลเวลา จริงหรือ?");
+
                 btnBr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "BedRoom1");
-                        reBr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องนอน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "BedRoom1");
+                                reBr1.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องนอน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnBr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "BedRoom2");
-                        reBr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องนอน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "BedRoom2");
+                                reBr2.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องนอน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnTr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "ToiletRoom1");
-                        reTr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา หลอดไฟห้องน้ำ สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "ToiletRoom1");
+                                reTr1.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา หลอดไฟห้องน้ำ สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnSr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "SaloonRoom1");
-                        reSr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "SaloonRoom1");
+                                reSr1.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnSr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "SaloonRoom2");
-                        reSr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "SaloonRoom2");
+                                reSr2.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnSr3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "SaloonRoom3");
-                        reSr3.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 3) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "SaloonRoom3");
+                                reSr3.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 3) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnSr4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "SaloonRoom4");
-                        reSr4.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 4) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "SaloonRoom4");
+                                reSr4.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 4) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnSr5.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "SaloonRoom5");
-                        reSr5.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 5) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "SaloonRoom5");
+                                reSr5.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องรับแขก(หลอดที่ 5) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnOr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "OfficeRoom1");
-                        reOr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องทำงาน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "OfficeRoom1");
+                                reOr1.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องทำงาน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnOr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "OfficeRoom2");
-                        reOr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องทำงาน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "OfficeRoom2");
+                                reOr2.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องทำงาน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnCr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "CookRoom1");
-                        reCr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องครัว(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "CookRoom1");
+                                reCr1.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องครัว(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnCr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "CookRoom2");
-                        reCr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา ห้องครัว(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "CookRoom2");
+                                reCr2.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา ห้องครัว(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnPr1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "ParkRoom1");
-                        rePr1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา หน้าบ้าน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "ParkRoom1");
+                                rePr1.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา หน้าบ้าน(หลอดที่ 1) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnPr2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "ParkRoom2");
-                        rePr2.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา หน้าบ้าน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "ParkRoom2");
+                                rePr2.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา หน้าบ้าน(หลอดที่ 2) สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
                 btnFd1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        s1.ResetData(IP_Address, "FontDoor1");
-                        reFd1.setText("00:00:00");
-                        Toast.makeText(getBaseContext(), "ล้างเวลา หลอดไฟที่จอดรถ สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                        // Ok
+                        DialogConfirm.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                s1.ResetData(IP_Address, "FontDoor1");
+                                reFd1.setText("00:00:00");
+                                Toast.makeText(getBaseContext(), "ล้างเวลา หลอดไฟที่จอดรถ สำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Cancel
+                        DialogConfirm.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getBaseContext(), "ทำการยกเลิกสำเร็จแล้ว", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        DialogConfirm.show();
                     }
                 });
 
@@ -416,11 +692,10 @@ public class Setting_Lamp extends Activity {
         });
     }
 
-    //BackPressed
-    public void onBackPressed() {
+    public void CheckInput(String input) {
         final AlertDialog.Builder da1 = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
         TextView msg = new TextView(this);
-        msg.setText("หากต้องการออกจาก App โดยสมบูรณ์กรุณากลับไปหน้าแรกก่อน");
+        msg.setText(input);
         msg.setGravity(Gravity.CENTER_HORIZONTAL);
         msg.setTextSize(18);
         msg.setTextColor(Color.WHITE);
@@ -431,5 +706,34 @@ public class Setting_Lamp extends Activity {
         da1.setPositiveButton("ปิด", null);
         da1.show();
     }
+
+    //BackPressed
+    public void onBackPressed() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
+        dialog.setTitle("ออกจากระบบ");
+        dialog.setIcon(R.drawable.ic_launcher);
+        dialog.setCancelable(true);
+        dialog.setMessage("คุณต้องการออกจากระบบหรือไม่ ?");
+        dialog.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                c1.SaveBeforeForeApp();
+                finish();
+                android.os.Process.killProcess(Process.myPid());
+            }
+        });
+
+        dialog.setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        dialog.show();
+    }
     //End BackPressed
+
+    public void onStop() {
+        super.onStop();
+        c1.SaveBeforeForeApp();
+    }
 }
