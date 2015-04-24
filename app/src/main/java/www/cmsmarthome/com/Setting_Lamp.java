@@ -732,8 +732,8 @@ public class Setting_Lamp extends Activity {
     }
     //End BackPressed
 
-    public void onStop() {
+    /*public void onStop() {
         super.onStop();
         c1.SaveBeforeForeApp();
-    }
-}
+    }*/
+}// End Class Setting_Lamp

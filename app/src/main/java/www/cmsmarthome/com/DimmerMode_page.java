@@ -565,8 +565,8 @@ public class DimmerMode_page extends Activity {
     }
     //End BackPressed
 
-    public void onStop() {
+    /*public void onStop() {
         super.onStop();
         c2.SaveBeforeForeApp();
-    }
+    }*/
 }//End Class DimmerMode_page

@@ -353,10 +353,9 @@ public class Graph_page extends FragmentActivity {
     }
     //End BackPressed
 
-    public void onStop() {
+    /*public void onStop() {
         super.onStop();
         c1.SaveBeforeForeApp();
-    }
-
+    }*/
 }//End Class Graph_page
 

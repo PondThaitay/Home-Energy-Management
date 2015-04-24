@@ -153,8 +153,8 @@ public class UpdateAccount_page extends Activity {
     }
     //End BackPressed
 
-    public void onStop() {
+  /*  public void onStop() {
         super.onStop();
         c1.SaveBeforeForeApp();
-    }
+    }*/
 }//End Class Update_page

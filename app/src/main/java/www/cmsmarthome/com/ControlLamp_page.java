@@ -2130,8 +2130,13 @@ public class ControlLamp_page extends Activity {
         Process.killProcess(Process.myPid());
     }
 
-    public void onStop() {
+   /* public void onPause() {
+        super.onPause();
+        SaveBeforeForeApp();
+    }*/
+
+    /*public void onStop() {
         super.onStop();
         SaveBeforeForeApp();
-    }
+    }*/
 }//End Class ControlLamp_page
